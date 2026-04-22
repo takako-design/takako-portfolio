@@ -1,0 +1,162 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* TAKAKO DESIGN Color Palette */
+  --background: #FAFAF7;
+  --foreground: #0A0A0A;
+  --accent: #C9B89E;
+  --muted: #1A1A1A;
+  --muted-foreground: #666666;
+  --border: #E5E5E0;
+  
+  /* Spacing */
+  --section-gap: clamp(120px, 15vw, 240px);
+  --content-padding: clamp(24px, 5vw, 80px);
+  
+  /* Typography */
+  --heading-size: clamp(60px, 8vw, 140px);
+  --subheading-size: clamp(32px, 4vw, 64px);
+  
+  --radius: 0;
+  
+  /* Cursor */
+  --cursor-size: 20px;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
+  --font-serif: 'Instrument Serif', 'Noto Serif JP', serif;
+  --font-mono: 'Geist Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    cursor: none;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  ::selection {
+    background-color: var(--accent);
+    color: var(--foreground);
+  }
+  
+  /* Hide default cursor on interactive elements */
+  a, button, [role="button"] {
+    cursor: none;
+  }
+}
+
+@layer utilities {
+  /* Text balance for headings */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Clip text animation */
+  .clip-text {
+    clip-path: inset(0 100% 0 0);
+  }
+  
+  .clip-text-reveal {
+    clip-path: inset(0 0 0 0);
+  }
+  
+  /* Grain overlay */
+  .grain {
+    position: relative;
+  }
+  
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+  
+  /* Horizontal scroll container */
+  .horizontal-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Mix blend modes */
+  .blend-difference {
+    mix-blend-mode: difference;
+  }
+  
+  .blend-exclusion {
+    mix-blend-mode: exclusion;
+  }
+  
+  /* Line height utilities */
+  .leading-display {
+    line-height: 0.9;
+  }
+  
+  .leading-relaxed-jp {
+    line-height: 2;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
