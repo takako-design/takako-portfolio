@@ -69,7 +69,7 @@ export function LpWorksSection() {
         </motion.div>
 
         {/* Cards Grid - 3 columns */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-8">
+        <div className="grid grid-cols-1 gap-y-14 gap-x-6 md:grid-cols-3 md:gap-6">
           {lpWorks.map((work, index) => (
             <motion.a
               key={work.id}
