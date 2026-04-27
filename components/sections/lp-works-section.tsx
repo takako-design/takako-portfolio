@@ -58,7 +58,7 @@ export function LpWorksSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.4 }}
-          className="mb-16 max-w-2xl font-light leading-relaxed text-foreground/70 md:mb-20"
+          className="mb-16 max-w-2xl space-y-4 font-light leading-relaxed text-foreground/70 md:mb-20"
         >
           <p className="text-base md:text-lg">
             想いや魅力が、きちんと届くように。
