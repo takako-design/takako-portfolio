@@ -83,18 +83,15 @@ export function AboutSection() {
               className="flex flex-col justify-center lg:col-span-8"
             >
               <h3 className="mb-8 font-serif text-2xl leading-relaxed tracking-tight md:text-3xl">
-                なぜ介護からデザインへ?
+                想いを丁寧にくみ取り、美しく伝わるかたちへ。
               </h3>
 
               <p className="mb-8 font-light leading-relaxed text-foreground/70">
-                20年以上の介護経験の中で、私は「伝えたい想いが届かない」もどかしさを何度も目にしてきました。
-                素晴らしいサービスを持っているのに、それを正しく表現できていない。
-                そんな事業者さんの力になりたいと思い、Webデザインの世界へ飛び込みました。
-              </p>
+                TAKAKO DESIGNは、想いや魅力を丁寧にすくい上げ、見る人の心に届くデザインへ整えるWebデザインを制作しています。
+      　　　　　</p>
 
               <p className="mb-12 font-light leading-relaxed text-foreground/70">
-                現場を知っているからこそ、クライアントの「言葉にならない想い」を汲み取ることができる。
-                技術力と寄り添う姿勢、その両輪でお客様のビジネスを支えていきます。
+                ただ綺麗に見せるだけではなく、その人らしさやブランドの空気感が自然に伝わること。言葉、余白、色、写真、構成のひとつひとつを丁寧に選びながら、長く愛される印象をつくっていきます。
               </p>
 
               {/* Quote */}
