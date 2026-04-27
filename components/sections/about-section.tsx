@@ -87,13 +87,17 @@ export function AboutSection() {
               </h3>
 
               <p className="mb-8 font-light leading-relaxed text-foreground/70">
-                TAKAKO DESIGNは、想いや魅力を丁寧にすくい上げ、見る人の心に届くデザインへ整えるWebデザインを制作しています。
+              　想いや魅力を丁寧にすくい上げ、見る人の心に届くデザインへ整えるWebデザインを制作しています。
       　　　　　</p>
 
               <p className="mb-12 font-light leading-relaxed text-foreground/70">
                 ただ綺麗に見せるだけではなく、その人らしさやブランドの空気感が自然に伝わること。言葉、余白、色、写真、構成のひとつひとつを丁寧に選びながら、長く愛される印象をつくっていきます。
               </p>
-
+　　　　　　　　
+              <p className="mb-12 font-light leading-relaxed text-foreground/70">
+        　　　　　まだ言葉になっていない想いも、対話を重ねる中で少しずつ輪郭が見えてくるものだと思っています。大切にしていること、届けたい人、残したい印象を一緒に見つめながら、美しく伝わるかたちへ整えます。
+     　　　　　 </p>
+              
               {/* Quote */}
               <blockquote className="relative border-l-2 border-accent py-4 pl-8">
                 <p className="font-serif text-xl italic leading-relaxed tracking-tight md:text-2xl">
