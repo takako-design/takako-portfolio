@@ -87,7 +87,7 @@ export function AboutSection() {
               </h3>
 
               <p className="mb-8 font-light leading-relaxed text-foreground/70">
-              　想いや魅力を丁寧にすくい上げ、見る人の心に届くデザインへ整えるWebデザインを制作しています。
+                想いや魅力を丁寧にすくい上げ、見る人の心に届くデザインへ整えるWebデザインを制作しています。
       　　　　　</p>
 
               <p className="mb-12 font-light leading-relaxed text-foreground/70">
