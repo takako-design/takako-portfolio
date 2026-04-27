@@ -123,3 +123,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* LP Design：スマホ時の段落余白 */
+@media (max-width: 768px) {
+  .lp-design-text p + p {
+    margin-top: 18px;
+  }
+}
