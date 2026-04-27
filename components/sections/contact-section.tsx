@@ -99,7 +99,7 @@ export function ContactSection() {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.6 }}
           className="mb-16 max-w-lg font-light text-lg leading-relaxed text-foreground/70 md:text-xl"
         >
-          まずは気軽にご相談ください。予算未定でもOKです。
+          まずは気軽にご相談ください。
         </motion.p>
 
         {/* Form */}
