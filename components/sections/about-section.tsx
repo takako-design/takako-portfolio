@@ -8,19 +8,19 @@ import { Marquee } from '@/components/marquee'
 
 const timeline = [
   {
-    year: '2003-',
-    title: '介護の世界へ',
-    description: '介護福祉士として医療・介護現場で20年以上の経験を積む',
+    year: 'Apparel',
+    title: 'アパレル業界',
+    description: 'ファッションやブランドの世界で、美意識や印象づくりに触れてきました。',
   },
   {
-    year: '2020-',
-    title: 'デザインとの出会い',
-    description: 'Web制作を独学で学び始め、技術の習得に没頭',
+    year: 'Care',
+    title: '介護福祉',
+    description: '介護福祉の現場で、言葉にならない想いや小さな変化をくみ取る力を培ってきました。',
   },
   {
-    year: '2024-',
-    title: 'フリーランスとして独立',
-    description: '介護現場の経験を活かした寄り添うデザインを提供',
+    year: 'Design',
+    title: 'Webデザイン',
+    description: 'れまでの経験で育ててきた対話力と美意識を活かし、想いが伝わるWebデザインを制作しています。',
   },
 ]
 
@@ -101,7 +101,7 @@ export function AboutSection() {
               {/* Quote */}
               <blockquote className="relative border-l-2 border-accent py-4 pl-8">
                 <p className="font-serif text-xl italic leading-relaxed tracking-tight md:text-2xl">
-                  {'"誰かの「伝えたい」を、誰かの「見つけた」に変える仕事。"'}
+                  {'"想いに寄り添い、美しく伝わるデザインを。"'}
                 </p>
               </blockquote>
             </motion.div>
