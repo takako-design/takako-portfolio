@@ -20,7 +20,7 @@ const timeline = [
   {
     year: 'Design',
     title: 'Webデザイン',
-    description: 'れまでの経験で育ててきた対話力と美意識を活かし、想いが伝わるWebデザインを制作しています。',
+    description: 'これまでの経験で育ててきた対話力と美意識を活かし、想いが伝わるWebデザインを制作しています。',
   },
 ]
 
