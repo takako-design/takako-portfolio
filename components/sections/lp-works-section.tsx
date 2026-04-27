@@ -61,10 +61,10 @@ export function LpWorksSection() {
           className="mb-16 max-w-2xl font-light leading-relaxed text-foreground/70 md:mb-20"
         >
           <p className="text-base md:text-lg">
-            ジャンルの幅は、違っていい。
+            想いや魅力が、きちんと届くように。
           </p>
           <p className="text-base md:text-lg">
-            変わらないのは、届けたい想いに「寄り添う」こと。
+            言葉と世界観を整えた、LPデザインです。
           </p>
         </motion.div>
 
