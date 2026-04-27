@@ -7,18 +7,18 @@ import { TextReveal, LineReveal } from '@/components/text-reveal'
 const strengths = [
   {
     number: '01',
-    title: '介護現場20年超の実体験',
-    description: '現場を知るからこそできる寄り添い',
+    title: '想いに寄り添い、本質を見つめる。',
+    description: 'まだ言葉になっていない想いや、大切にしたい価値観まで。対話を通して丁寧にくみ取り、その人らしさの核を見つけていきます。',
   },
   {
     number: '02',
-    title: 'Web制作の技術力',
-    description: 'HTML/CSS/JS/WordPressを自在に扱う',
+    title: '魅力が伝わる、世界観へ整える。',
+    description: '色、余白、写真、言葉、構成を丁寧に選びながら、ブランドの空気感や魅力が自然に伝わるデザインへ整えます。',
   },
   {
     number: '03',
-    title: '丁寧なヒアリング',
-    description: 'あなたの「伝えたい」を言語化する',
+    title: '長く愛される、美しさを大切にする。',
+    description: '一瞬の印象だけで終わらない、時間が経っても心に残る美しさを。信頼感と品のあるデザインで、ブランドの土台づくりを支えます。',
   },
 ]
 
