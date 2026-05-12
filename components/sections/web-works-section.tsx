@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { LineReveal, TextReveal } from "@/components/text-reveal";
@@ -129,6 +130,16 @@ export function WebWorksSection() {
                   →
                 </span>
               </a>
+
+              <a
+                href="/works/no8-hair-salon"
+                className="group ml-8 inline-flex items-center gap-2 border-b border-foreground/20 pb-1 text-sm font-light uppercase tracking-widest text-foreground/70 transition hover:text-foreground"
+              >
+                View Case Study
+                <span className="inline-block transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
             </motion.div>
           </div>
 
@@ -251,6 +262,16 @@ export function WebWorksSection() {
                 className="group inline-flex items-center gap-2 border-b border-[#C9A96E]/40 pb-1 text-sm font-light uppercase tracking-widest text-foreground/90 transition-colors hover:border-[#C9A96E]"
               >
                 Visit Live Site
+                <span className="inline-block transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+
+              <a
+                href="/works/melia-noir"
+                className="group ml-8 inline-flex items-center gap-2 border-b border-foreground/20 pb-1 text-sm font-light uppercase tracking-widest text-foreground/70 transition hover:text-foreground"
+              >
+                View Case Study
                 <span className="inline-block transition-transform group-hover:translate-x-1">
                   →
                 </span>
