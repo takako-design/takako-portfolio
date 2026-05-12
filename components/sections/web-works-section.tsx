@@ -182,7 +182,7 @@ export function WebWorksSection() {
           </div>
         </div>
 
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="mt-20 grid gap-12 md:mt-28 lg:grid-cols-12 lg:gap-8">
           {/* Project Info (Left) */}
           <div className="order-2 flex flex-col justify-end lg:order-1 lg:col-span-4">
             <motion.div
