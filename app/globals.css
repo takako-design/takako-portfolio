@@ -279,3 +279,295 @@
     padding-bottom: 60px;
   }
 }
+
+.melia-brand-page {
+  background: #f4efe8;
+  color: #171312;
+  min-height: 100vh;
+}
+
+.melia-brand-hero {
+  padding: 140px 8vw 110px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.melia-brand-kicker {
+  font-size: 12px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: #9d8566;
+  margin-bottom: 28px;
+}
+
+.melia-brand-hero h1 {
+  font-size: clamp(54px, 9vw, 118px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  margin: 0;
+}
+
+.melia-brand-hero h1 span {
+  display: block;
+  font-size: clamp(18px, 2vw, 28px);
+  letter-spacing: 0.12em;
+  line-height: 1.8;
+  margin-top: 34px;
+  font-weight: 300;
+}
+
+.melia-brand-lead {
+  max-width: 680px;
+  margin-top: 48px;
+  font-size: 15px;
+  line-height: 2.25;
+  letter-spacing: 0.08em;
+  color: #5f554d;
+}
+
+.melia-brand-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 48px;
+}
+
+.melia-brand-links a {
+  border: 1px solid rgba(23, 19, 18, 0.22);
+  padding: 13px 22px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #171312;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.melia-brand-links a:hover {
+  background: #171312;
+  color: #f4efe8;
+}
+
+.melia-brand-section {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 92px 8vw;
+  border-top: 1px solid rgba(23, 19, 18, 0.12);
+}
+
+.melia-brand-section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 34px;
+}
+
+.melia-brand-section-head p {
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  color: #9d8566;
+}
+
+.melia-brand-section-head h2 {
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.melia-brand-concept {
+  max-width: 780px;
+}
+
+.melia-brand-concept p,
+.melia-brand-text {
+  font-size: 15px;
+  line-height: 2.25;
+  letter-spacing: 0.08em;
+  color: #5f554d;
+}
+
+.melia-brand-concept strong {
+  color: #171312;
+  font-weight: 400;
+}
+
+.melia-brand-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.melia-brand-keywords span {
+  padding: 14px 20px;
+  border: 1px solid rgba(23, 19, 18, 0.16);
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: #3a302b;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.melia-brand-colors {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.melia-brand-color-card {
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(23, 19, 18, 0.1);
+  padding: 18px;
+}
+
+.melia-brand-color {
+  height: 160px;
+  margin-bottom: 22px;
+}
+
+.melia-brand-color-card h3 {
+  font-size: 17px;
+  font-weight: 400;
+  margin: 0 0 6px;
+}
+
+.melia-brand-hex {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #9d8566;
+  margin-bottom: 16px;
+}
+
+.melia-brand-color-card p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #5f554d;
+}
+
+.melia-brand-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.melia-brand-type-sample {
+  background: #171312;
+  color: #f4efe8;
+  padding: 64px 46px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.melia-brand-type-sample p {
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  color: #b9a06c;
+  margin-bottom: 44px;
+}
+
+.melia-brand-type-sample h3 {
+  font-size: clamp(44px, 6vw, 78px);
+  line-height: 0.95;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  margin: 0 0 36px;
+}
+
+.melia-brand-type-sample span {
+  font-size: 13px;
+  line-height: 2;
+  letter-spacing: 0.14em;
+  color: #d8cfc4;
+}
+
+.melia-brand-image-note {
+  border: 1px solid rgba(23, 19, 18, 0.13);
+  padding: 42px;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.melia-brand-image-note p {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #9d8566;
+  margin-bottom: 28px;
+}
+
+.melia-brand-image-note ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.melia-brand-image-note li {
+  border-top: 1px solid rgba(23, 19, 18, 0.1);
+  padding: 16px 0;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: #3a302b;
+}
+
+.melia-brand-rules {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.melia-brand-rules div {
+  background: #171312;
+  color: #f4efe8;
+  padding: 34px;
+  min-height: 230px;
+}
+
+.melia-brand-rules h3 {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin: 0 0 22px;
+}
+
+.melia-brand-rules p {
+  font-size: 13px;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  color: #d8cfc4;
+}
+
+@media (max-width: 900px) {
+  .melia-brand-hero {
+    padding: 110px 24px 80px;
+  }
+
+  .melia-brand-section {
+    padding: 72px 24px;
+  }
+
+  .melia-brand-colors,
+  .melia-brand-grid,
+  .melia-brand-rules {
+    grid-template-columns: 1fr;
+  }
+
+  .melia-brand-lead,
+  .melia-brand-concept p,
+  .melia-brand-text {
+    font-size: 14px;
+    line-height: 2.15;
+  }
+
+  .melia-brand-color {
+    height: 120px;
+  }
+
+  .melia-brand-type-sample {
+    padding: 46px 28px;
+    min-height: 280px;
+  }
+}

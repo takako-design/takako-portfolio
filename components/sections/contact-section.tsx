@@ -1,73 +1,73 @@
-'use client'
+"use client";
 
-import { motion, useInView } from 'framer-motion'
-import { useRef, useState, type FormEvent } from 'react'
-import { CharacterReveal, LineReveal } from '@/components/text-reveal'
+import { motion, useInView } from "framer-motion";
+import { useRef, useState, type FormEvent } from "react";
+import { CharacterReveal, LineReveal } from "@/components/text-reveal";
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xpqkjvqw'
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xpqkjvqw";
 
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export function ContactSection() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(containerRef, { once: true, margin: '-100px' })
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   // Form state
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  })
-  const [status, setStatus] = useState<FormStatus>('idle')
-  const [errorMessage, setErrorMessage] = useState('')
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (status === 'submitting') return
+    if (status === "submitting") return;
 
-    setStatus('submitting')
-    setErrorMessage('')
+    setStatus("submitting");
+    setErrorMessage("");
 
     try {
       const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           message: formData.message,
         }),
-      })
+      });
 
       if (response.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', message: '' })
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
       } else {
-        const data = await response.json().catch(() => null)
+        const data = await response.json().catch(() => null);
         const errorText =
           data?.errors?.[0]?.message ??
-          '送信に失敗しました。時間をおいて再度お試しください。'
-        setErrorMessage(errorText)
-        setStatus('error')
+          "送信に失敗しました。時間をおいて再度お試しください。";
+        setErrorMessage(errorText);
+        setStatus("error");
       }
     } catch {
       setErrorMessage(
-        '送信に失敗しました。ネットワーク環境をご確認のうえ、再度お試しください。'
-      )
-      setStatus('error')
+        "送信に失敗しました。ネットワーク環境をご確認のうえ、再度お試しください。",
+      );
+      setStatus("error");
     }
-  }
+  };
 
   return (
     <section
@@ -109,7 +109,7 @@ export function ContactSection() {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.7 }}
           className="max-w-[640px]"
         >
-          {status === 'success' ? (
+          {status === "success" ? (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ export function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  disabled={status === 'submitting'}
+                  disabled={status === "submitting"}
                   autoComplete="name"
                   className="w-full border-b border-foreground/20 bg-transparent px-0 py-3 font-light text-base text-foreground transition-colors placeholder:text-foreground/30 focus:border-accent focus:outline-none disabled:opacity-50"
                   placeholder="山田 太郎"
@@ -176,7 +176,7 @@ export function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  disabled={status === 'submitting'}
+                  disabled={status === "submitting"}
                   autoComplete="email"
                   className="w-full border-b border-foreground/20 bg-transparent px-0 py-3 font-light text-base text-foreground transition-colors placeholder:text-foreground/30 focus:border-accent focus:outline-none disabled:opacity-50"
                   placeholder="your@email.com"
@@ -198,7 +198,7 @@ export function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  disabled={status === 'submitting'}
+                  disabled={status === "submitting"}
                   rows={6}
                   className="w-full resize-none border-b border-foreground/20 bg-transparent px-0 py-3 font-light text-base text-foreground transition-colors placeholder:text-foreground/30 focus:border-accent focus:outline-none disabled:opacity-50"
                   placeholder="ご相談内容をお聞かせください"
@@ -206,7 +206,7 @@ export function ContactSection() {
               </div>
 
               {/* Error Message */}
-              {status === 'error' && (
+              {status === "error" && (
                 <motion.p
                   initial={{ opacity: 0, y: -5 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -221,11 +221,11 @@ export function ContactSection() {
               <div className="pt-4">
                 <button
                   type="submit"
-                  disabled={status === 'submitting'}
+                  disabled={status === "submitting"}
                   className="group relative inline-flex items-center gap-3 border border-foreground/20 px-8 py-4 text-sm font-light uppercase tracking-widest text-foreground transition-all hover:border-foreground hover:bg-foreground hover:text-background disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   <span>
-                    {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                    {status === "submitting" ? "Sending..." : "Send Message"}
                   </span>
                   <span
                     className="transition-transform group-hover:translate-x-1"
@@ -240,5 +240,5 @@ export function ContactSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
