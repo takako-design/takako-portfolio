@@ -61,6 +61,126 @@ export function WebWorksSection() {
           </span>
         </LineReveal>
 
+        {/* LENTO BLOOM */}
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
+          {/* Project Info */}
+          <div className="order-2 flex flex-col justify-end lg:order-1 lg:col-span-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1],
+                delay: 0.5,
+              }}
+            >
+              <h3 className="mb-8 font-serif text-3xl tracking-tight md:text-4xl lg:text-5xl">
+                <TextReveal delay={0.7}>LENTO BLOOM</TextReveal>
+              </h3>
+
+              <dl className="mb-8 space-y-4 text-sm">
+                <div className="flex gap-4">
+                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
+                    Client
+                  </dt>
+                  <dd className="font-light">架空フラワーギフトブランド</dd>
+                </div>
+                <div className="flex gap-4">
+                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
+                    Year
+                  </dt>
+                  <dd className="font-light">2026</dd>
+                </div>
+                <div className="flex gap-4">
+                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
+                    Role
+                  </dt>
+                  <dd className="font-light">
+                    Concept / Shopify Design / Copywriting
+                  </dd>
+                </div>
+                <div className="flex gap-4">
+                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
+                    Stack
+                  </dt>
+                  <dd className="font-light">Shopify / Theme Customization</dd>
+                </div>
+              </dl>
+
+              <div className="mb-8 space-y-4 font-light leading-relaxed text-foreground/70">
+                <p>
+                  LENTO BLOOMは、花と香りのギフトを扱う架空のShopify
+                  ECサイトです。
+                </p>
+                <p>
+                  大切な人への贈り物や、自分へのご褒美として選ばれるフラワーギフトを想定し、商品写真、コピー、余白、配色を統一して上質でやわらかな世界観を設計しました。
+                </p>
+                <p className="text-foreground/80">
+                  商品一覧だけでなく、商品詳細ページや購入前の確認項目まで整え、「安心して選べるECサイト」として見せられる作品です。
+                </p>
+              </div>
+
+              <a
+                href="/works/lento-bloom"
+                className="group inline-flex items-center gap-2 border-b border-foreground/20 pb-1 text-sm font-light uppercase tracking-widest text-foreground/70 transition hover:text-foreground"
+              >
+                View Case Study
+                <span className="inline-block transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Image Column */}
+          <div className="order-1 lg:order-2 lg:col-span-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{
+                duration: 1,
+                ease: [0.25, 0.1, 0.25, 1],
+                delay: 0.3,
+              }}
+              className="overflow-hidden rounded-[2px] border border-foreground/10 bg-background shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15),0_10px_25px_-15px_rgba(0,0,0,0.08)]"
+            >
+              <div
+                onScroll={handleScroll}
+                data-lenis-prevent
+                className="refined-scroll-gold h-[500px] overflow-y-auto md:h-[700px]"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/works/lento-bloom-home-pc.webp"
+                  alt="LENTO BLOOM - Shopify EC Site"
+                  className="w-full"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="relative h-[2px] w-full bg-foreground/5">
+                <div
+                  className="absolute left-0 top-0 h-full bg-[#C9A96E] transition-[width] duration-150 ease-out"
+                  style={{ width: `${scrollProgress}%` }}
+                />
+              </div>
+
+              <div className="flex items-center justify-between border-t border-foreground/10 px-4 py-2.5">
+                <p className="text-xs font-light uppercase tracking-widest text-foreground/40 transition-colors duration-300">
+                  {isAtEnd
+                    ? "— End of the page —"
+                    : "↓ Scroll to see the full page"}
+                </p>
+                <span className="text-xs font-light tabular-nums tracking-widest text-foreground/30">
+                  {Math.round(scrollProgress)}%
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        <div className="mt-20 md:mt-28" />
+
         {/* Main Content Grid - 左右反転: 情報(左) + 画像(右) */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Project Info (Left) */}
