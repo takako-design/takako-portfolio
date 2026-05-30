@@ -20,7 +20,7 @@ export default function MeliaNoirPage() {
               <p className="mt-8 max-w-xl text-sm font-light leading-[2.1] tracking-[0.08em] text-[#4f4942] md:text-base">
                 静かな強さと女性らしさをまとう、
                 <br className="hidden md:block" />
-                架空ファッションブランドのLP。
+                ファッションブランドのLP。
               </p>
             </div>
 

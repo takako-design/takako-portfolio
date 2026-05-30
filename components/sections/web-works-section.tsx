@@ -83,7 +83,7 @@ export function WebWorksSection() {
                   <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
                     Client
                   </dt>
-                  <dd className="font-light">架空フラワーギフトブランド</dd>
+                  <dd className="font-light">フラワーギフトブランド</dd>
                 </div>
                 <div className="flex gap-4">
                   <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
@@ -348,7 +348,7 @@ export function WebWorksSection() {
                   <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
                     Client
                   </dt>
-                  <dd className="font-light">架空ファッションブランド</dd>
+                  <dd className="font-light">ファッションブランド</dd>
                 </div>
                 <div className="flex gap-4">
                   <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">

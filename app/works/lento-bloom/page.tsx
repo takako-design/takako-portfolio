@@ -3,7 +3,7 @@ import Link from "next/link";
 const details = [
   {
     label: "Client",
-    value: "架空フラワーギフトブランド",
+    value: "フラワーギフトブランド",
   },
   {
     label: "Year",
