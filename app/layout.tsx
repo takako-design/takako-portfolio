@@ -38,28 +38,28 @@ const notoSerifJP = Noto_Serif_JP({
 
 // サイトのベースURL(後でドメイン取得したら差し替え)
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://takako-portfolio.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.lentodesign.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "TAKAKO DESIGN Portfolio",
-    template: "%s | TAKAKO DESIGN Portfolio",
+    default: "LENTO DESIGN | Web Design Portfolio",
+    template: "%s | LENTO DESIGN",
   },
   description:
-    "介護・医療の現場を20年以上経験した、寄り添えるWebデザイナー。丁寧に寄り添い、心を動かすデザインを。Webサイト・LP・バナー制作承ります。",
+    "想いに寄り添い、美しく伝わるデザインを。女性向け・上質感のあるWebサイト、LP、バナー制作を行うWebデザイナーのポートフォリオです。",
   keywords: [
     "Webデザイン",
     "Webデザイナー",
     "ポートフォリオ",
     "LP制作",
     "バナー制作",
-    "介護",
-    "医療",
     "ホームページ制作",
+    "女性向けデザイン",
+    "上質なデザイン",
   ],
-  authors: [{ name: "TAKAKO" }],
-  creator: "TAKAKO",
+  authors: [{ name: "TAKAKO TANAKA" }],
+  creator: "LENTO DESIGN",
   robots: {
     index: true,
     follow: true,
@@ -74,24 +74,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     url: siteUrl,
-    siteName: "TAKAKO DESIGN Portfolio",
-    title: "TAKAKO DESIGN Portfolio",
+    siteName: "LENTO DESIGN",
+    title: "LENTO DESIGN | Web Design Portfolio",
     description:
-      "介護・医療の現場を20年以上経験した、寄り添えるWebデザイナー。丁寧に寄り添い、心を動かすデザインを。",
+      "想いに寄り添い、美しく伝わるデザインを。女性向け・上質感のあるWebサイト、LP、バナー制作を行うWebデザイナーのポートフォリオです。",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "TAKAKO DESIGN Portfolio",
+        alt: "LENTO DESIGN Web Design Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TAKAKO DESIGN Portfolio",
+    title: "LENTO DESIGN | Web Design Portfolio",
     description:
-      "介護・医療の現場を20年以上経験した、寄り添えるWebデザイナー。丁寧に寄り添い、心を動かすデザインを。",
+      "想いに寄り添い、美しく伝わるデザインを。女性向け・上質感のあるWebサイト、LP、バナー制作を行うWebデザイナーのポートフォリオです。",
     images: ["/og-image.jpg"],
   },
   alternates: {
