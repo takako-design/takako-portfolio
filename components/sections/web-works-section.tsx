@@ -120,15 +120,29 @@ export function WebWorksSection() {
                 </p>
               </div>
 
-              <a
-                href="/works/lento-bloom"
-                className="group inline-flex items-center gap-2 border-b border-foreground/20 pb-1 text-sm font-light uppercase tracking-widest text-foreground/70 transition hover:text-foreground"
-              >
-                View Case Study
-                <span className="inline-block transition-transform group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
+              <div className="flex flex-wrap items-center gap-6">
+                <a
+                  href="https://p7vd1p-7p.myshopify.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-2 border-b border-foreground/20 pb-1 text-sm font-light uppercase tracking-widest text-foreground transition hover:border-[#b86f63] hover:text-[#b86f63]"
+                >
+                  Visit Live Site
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </a>
+
+                <a
+                  href="/works/lento-bloom"
+                  className="group inline-flex items-center gap-2 border-b border-foreground/20 pb-1 text-sm font-light uppercase tracking-widest text-foreground transition hover:border-[#b86f63] hover:text-[#b86f63]"
+                >
+                  View Case Study
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </a>
+              </div>
             </motion.div>
           </div>
 
