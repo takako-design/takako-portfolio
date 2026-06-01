@@ -1,26 +1,27 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { MagneticButton } from './magnetic-button'
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MagneticButton } from "./magnetic-button";
 
 const navItems = [
-  { href: '#works', label: 'Works' },
-  { href: '#about', label: 'About' },
-  { href: '#contact', label: 'Contact' },
-]
+  { href: "#works", label: "Works" },
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+];
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 100);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -29,12 +30,15 @@ export function Header() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.5 }}
         className={`fixed left-0 right-0 top-0 z-50 px-6 py-6 transition-colors duration-500 md:px-12 ${
-          isScrolled ? 'bg-background/80 backdrop-blur-md' : ''
+          isScrolled ? "bg-background/80 backdrop-blur-md" : ""
         }`}
       >
         <nav className="mx-auto flex max-w-[1440px] items-center justify-between">
           {/* Logo */}
-          <MagneticButton href="#" className="font-serif text-xl tracking-tight md:text-2xl">
+          <MagneticButton
+            href="#"
+            className="font-serif text-xl tracking-tight md:text-2xl"
+          >
             TAKAKO<span className="text-accent">.</span>
           </MagneticButton>
 
@@ -111,5 +115,5 @@ export function Header() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }

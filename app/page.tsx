@@ -7,6 +7,7 @@ import { WebWorksSection } from "@/components/sections/web-works-section";
 import { LpWorksSection } from "@/components/sections/lp-works-section";
 import { BannerWorksSection } from "@/components/sections/banner-works-section";
 import { AboutSection } from "@/components/sections/about-section";
+import { SkillsSection } from "@/components/sections/skills-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { Footer } from "@/components/footer";
 
@@ -22,6 +23,7 @@ export default function Home() {
         <LpWorksSection />
         <BannerWorksSection />
         <AboutSection />
+        <SkillsSection />
         <ContactSection />
       </main>
       <Footer />

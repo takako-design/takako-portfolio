@@ -203,6 +203,27 @@ export default function LentoBloomPage() {
       </section>
 
       <section className="px-6 py-20 md:px-10 lg:px-16">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.34fr_0.66fr]">
+          <div>
+            <SectionLabel>AI-assisted Process</SectionLabel>
+          </div>
+
+          <div className="space-y-8 text-[13px] font-normal leading-[2.05] tracking-[0.06em] text-[#4f4942] md:text-[15px]">
+            <p>
+              制作初期のブランドコンセプト整理、商品コピーのブラッシュアップ、
+              商品画像の方向性検討、Shopifyの商品ページ構成の整理にAIを活用しました。
+            </p>
+
+            <p>
+              AIの提案をそのまま使用するのではなく、ギフトECとしての見やすさ、
+              購入導線、ブランドの上質感に合わせて取捨選択し、最終的なデザイン判断と
+              トーン調整は自身で行いました。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <SectionLabel>Design Point</SectionLabel>
 

@@ -120,6 +120,28 @@ export default function MeliaNoirPage() {
       </section>
 
       <section className="px-6 py-20 md:px-10 lg:px-16">
+        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.35fr_0.65fr]">
+          <div>
+            <p className="text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+              AI-assisted Process
+            </p>
+          </div>
+
+          <div className="space-y-8 text-sm font-light leading-[2.2] tracking-[0.08em] text-[#4f4942] md:text-base">
+            <p>
+              制作初期のコンセプト整理、コピーのブラッシュアップ、ビジュアルの方向性検討、
+              実装時のコード修正補助にAIを活用しました。
+            </p>
+
+            <p>
+              AIの提案をそのまま使用するのではなく、ブランドの世界観・余白・可読性・導線設計に合わせて取捨選択し、
+              最終的なデザイン判断とトーン調整は自身で行いました。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
           <p className="mb-10 text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
             Design Point
