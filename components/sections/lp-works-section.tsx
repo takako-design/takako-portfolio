@@ -10,7 +10,7 @@ const featuredLpWork = {
   label: "Featured LP / 架空サイト",
   catch:
     "呼吸・姿勢・心を整えるというコンセプトを軸に、初めての方でも安心して体験予約へ進めるよう設計した女性専用プライベートピラティススタジオLP。",
-  image: "/works/lp-lunea-pilates.png",
+  image: "/works/lp-lunea-pilates1.webp",
   url: "https://lunea-pilates-lp.vercel.app/",
   tags: ["Wellness", "Reservation Flow", "Sage Design"],
 };
@@ -110,12 +110,12 @@ export function LpWorksSection() {
           href={featuredLpWork.url}
           target="_blank"
           rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 32 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
+          initial={{ opacity: 0, y: 14 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
           transition={{
-            duration: 0.9,
-            ease: [0.25, 0.1, 0.25, 1],
-            delay: 0.5,
+            duration: 0.55,
+            ease: [0.22, 1, 0.36, 1],
+            delay: 0.15,
           }}
           className="group mb-60 grid overflow-hidden rounded-[2px] border border-foreground/10 bg-background shadow-[0_24px_70px_-28px_rgba(0,0,0,0.18)] transition-shadow duration-500 hover:shadow-[0_30px_80px_-28px_rgba(201,157,168,0.28)] md:grid-cols-[1.35fr_0.9fr]"
         >
@@ -229,7 +229,7 @@ export function LpWorksSection() {
                   <img
                     src={work.image}
                     alt={`${work.title} - LP`}
-                    className="w-full object-cover object-top transition-transform duration-[4500ms] ease-out group-hover:-translate-y-[40%]"
+                    className="w-full object-cover object-top transition-transform duration-[6500ms] ease-out group-hover:translate-y-[calc(-100%_+_380px)] md:group-hover:translate-y-[calc(-100%_+_420px)] lg:group-hover:translate-y-[calc(-100%_+_460px)]"
                     style={{ objectPosition: "top" }}
                     loading="lazy"
                   />
