@@ -7,7 +7,6 @@ import {
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import { CustomCursor } from "@/components/custom-cursor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -116,7 +115,6 @@ export default function RootLayout({
       className={`${inter.variable} ${instrumentSerif.variable} ${notoSansJP.variable} ${notoSerifJP.variable} bg-background`}
     >
       <body className="font-sans antialiased">
-        <CustomCursor />
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
