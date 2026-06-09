@@ -46,9 +46,9 @@ const designPoints = [
 export default function LuneaPilatesPage() {
   return (
     <main className="min-h-screen bg-[#fbfaf6] text-[#17130f]">
-      <section className="px-6 pb-24 pt-32 md:px-10 lg:px-16 lg:pb-32 lg:pt-40">
+      <section className="px-6 pb-20 pt-32 md:px-10 lg:px-16 lg:pb-28 lg:pt-40">
         <div className="mx-auto max-w-6xl">
-          <p className="mb-6 text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+          <p className="mb-6 text-[12px] font-normal uppercase leading-relaxed tracking-[0.35em] text-[#9c8f7e]">
             LP Design / Case Study
           </p>
 
@@ -60,14 +60,14 @@ export default function LuneaPilatesPage() {
                 PILATES
               </h1>
 
-              <p className="mt-8 max-w-xl text-sm font-light leading-[2.1] tracking-[0.06em] text-[#4f4944] md:text-base">
+              <p className="mt-8 max-w-xl text-sm font-normal leading-[2.1] tracking-[0.05em] text-[#4f4944] md:text-base">
                 女性専用プライベートピラティススタジオとして、
                 <br className="hidden md:block" />
                 初めての方でも安心して体験予約へ進めるLP。
               </p>
             </div>
 
-            <div className="border-l border-[#ded7ca] pl-6 text-xs font-light leading-[2] tracking-[0.08em] text-[#6d655b]">
+            <div className="space-y-1 border-l border-[#ded7ca] pl-6 text-[12px] font-normal leading-[2.2] tracking-[0.065em] text-[#4f4944] md:text-[13px]">
               {caseMeta.map((item) => (
                 <p key={item}>{item}</p>
               ))}
@@ -89,12 +89,12 @@ export default function LuneaPilatesPage() {
       <section className="px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.35fr_0.65fr]">
           <div>
-            <p className="text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+            <p className="text-[12px] font-normal uppercase leading-relaxed tracking-[0.35em] text-[#9c8f7e]">
               Overview
             </p>
           </div>
 
-          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
+          <div className="space-y-8 text-sm font-normal leading-[2.1] tracking-[0.045em] text-[#4f4944] md:text-base">
             <p>
               LUNÉA
               PILATESは、女性専用プライベートピラティススタジオを想定して制作したLPです。
@@ -113,7 +113,7 @@ export default function LuneaPilatesPage() {
 
       <section className="px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
-          <p className="mb-10 text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+          <p className="mb-10 text-[12px] font-normal uppercase leading-relaxed tracking-[0.35em] text-[#9c8f7e]">
             Target / Goal / Challenge
           </p>
 
@@ -121,12 +121,12 @@ export default function LuneaPilatesPage() {
             {challengeItems.map((item) => (
               <div
                 key={item.title}
-                className="border border-[#e4ddd2] bg-white/65 p-7 md:p-8"
+                className="border border-[#e4ddd2] bg-white/70 p-8 md:p-9"
               >
-                <p className="mb-5 font-serif text-2xl font-light tracking-tight text-[#17130f]">
+                <p className="mb-5 font-serif text-2xl font-light leading-[1.35] tracking-tight text-[#17130f]">
                   {item.title}
                 </p>
-                <p className="text-sm font-light leading-[2] tracking-[0.06em] text-[#4f4944]">
+                <p className="text-sm font-normal leading-[2.05] tracking-[0.045em] text-[#4f4944]">
                   {item.text}
                 </p>
               </div>
@@ -138,12 +138,12 @@ export default function LuneaPilatesPage() {
       <section className="px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.35fr_0.65fr]">
           <div>
-            <p className="text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+            <p className="text-[12px] font-normal uppercase leading-relaxed tracking-[0.35em] text-[#9c8f7e]">
               Background
             </p>
           </div>
 
-          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
+          <div className="space-y-8 text-sm font-normal leading-[2.1] tracking-[0.045em] text-[#4f4944] md:text-base">
             <p>
               ピラティススタジオを探す方は、効果や料金だけでなく、「自分に合う雰囲気か」「初心者でも大丈夫か」「無理なく続けられそうか」を重視します。
             </p>
@@ -160,7 +160,7 @@ export default function LuneaPilatesPage() {
       <section className="px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.35fr_0.65fr]">
           <div>
-            <p className="text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+            <p className="text-[12px] font-normal uppercase leading-relaxed tracking-[0.35em] text-[#9c8f7e]">
               Design Concept
             </p>
           </div>
@@ -172,7 +172,7 @@ export default function LuneaPilatesPage() {
               自分らしい美しさへ。
             </h2>
 
-            <div className="mt-10 space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
+            <div className="mt-10 space-y-8 text-sm font-normal leading-[2.1] tracking-[0.045em] text-[#4f4944] md:text-base">
               <p>
                 セージグリーンやアイボリーを基調に、清潔感とやわらかさを両立しました。
                 余白を広く取り、情報を詰め込みすぎないことで、呼吸が整うような静かな印象を目指しています。
@@ -189,7 +189,7 @@ export default function LuneaPilatesPage() {
 
       <section className="px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto max-w-6xl">
-          <p className="mb-10 text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+          <p className="mb-10 text-[12px] font-normal uppercase leading-relaxed tracking-[0.35em] text-[#9c8f7e]">
             Design Point
           </p>
 
@@ -197,15 +197,15 @@ export default function LuneaPilatesPage() {
             {designPoints.map((item, index) => (
               <div
                 key={item.title}
-                className="border border-[#e4ddd2] bg-white/65 p-7 md:p-9"
+                className="flex h-full flex-col border border-[#e4ddd2] bg-white/70 p-8 md:min-h-[278px] md:p-9"
               >
                 <p className="mb-6 font-serif text-3xl font-light text-[#d5c9ba]">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <h3 className="mb-4 text-base font-light leading-[1.8] tracking-[0.08em] text-[#17130f]">
+                <h3 className="mb-4 text-[15px] font-normal leading-[1.8] tracking-[0.07em] text-[#17130f] md:text-base">
                   {item.title}
                 </h3>
-                <p className="text-sm font-light leading-[2] tracking-[0.06em] text-[#4f4944]">
+                <p className="text-sm font-normal leading-[2.05] tracking-[0.045em] text-[#4f4944]">
                   {item.text}
                 </p>
               </div>
@@ -217,12 +217,12 @@ export default function LuneaPilatesPage() {
       <section className="px-6 py-20 md:px-10 lg:px-16">
         <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.35fr_0.65fr]">
           <div>
-            <p className="text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+            <p className="text-[12px] font-normal uppercase leading-relaxed tracking-[0.35em] text-[#9c8f7e]">
               Expected Effect
             </p>
           </div>
 
-          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
+          <div className="space-y-8 text-sm font-normal leading-[2.1] tracking-[0.045em] text-[#4f4944] md:text-base">
             <p>
               体験予約前に必要な情報をわかりやすく整理することで、
               「自分にもできそう」「一度体験してみたい」と感じてもらいやすいLPを目指しました。
@@ -237,10 +237,10 @@ export default function LuneaPilatesPage() {
       </section>
 
       <section className="px-6 pb-28 pt-20 md:px-10 lg:px-16 lg:pb-36">
-        <div className="mx-auto flex max-w-6xl flex-col gap-6 border-t border-[#ded7ca] pt-10 md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col gap-7 border-t border-[#ded7ca] pt-10 md:flex-row md:items-center md:justify-between">
           <Link
             href="/"
-            className="text-xs font-light uppercase tracking-[0.3em] text-[#6d655b] transition hover:text-[#17130f]"
+            className="text-[12px] font-normal uppercase tracking-[0.3em] text-[#6d655b] transition hover:text-[#17130f]"
           >
             Back to Top
           </Link>
@@ -249,7 +249,7 @@ export default function LuneaPilatesPage() {
             href="https://lunea-pilates-lp.vercel.app/"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex w-fit border border-[#17130f] px-6 py-3 text-xs font-light uppercase tracking-[0.25em] transition hover:bg-[#17130f] hover:text-white"
+            className="inline-flex w-fit border border-[#6d655b] bg-white/35 px-7 py-3.5 text-[12px] font-normal uppercase tracking-[0.25em] text-[#17130f] transition hover:border-[#17130f] hover:bg-[#17130f] hover:text-white"
           >
             View Site
           </a>
