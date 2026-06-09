@@ -1,5 +1,48 @@
 import Link from "next/link";
 
+const caseMeta = [
+  "Role：Brand Direction / LP Design / Coding / Writing",
+  "Tools：Figma / VS Code / React / CSS",
+  "Type：Luxury Fashion Landing Page",
+  "Target：上品さとモード感を大切にする20〜40代女性",
+  "Mood：Quiet Luxury / Feminine Mode / Editorial",
+  "Goal：ブランドの世界観を伝え、Collectionへの興味を高める設計",
+];
+
+const projectDetails = [
+  {
+    title: "Target",
+    text: "上品さとモード感を両立したファッションを好む20〜40代女性。トレンドだけでなく、自分らしい美しさや洗練された印象を大切にする方を想定しました。",
+  },
+  {
+    title: "Goal",
+    text: "商品そのものだけでなく、ブランドの空気感や憧れまで伝え、Collectionページへの回遊や購入意欲につながるLPにすることを目指しました。",
+  },
+  {
+    title: "Challenge",
+    text: "黒を主役にしながら重く見せすぎず、甘さと強さ、静けさと華やかさのバランスを取り、上質な女性像として成立させることを課題にしました。",
+  },
+];
+
+const designPoints = [
+  {
+    title: "黒を主役にしたブランド設計",
+    text: "ブラックを軸に、アイボリーとベージュを重ねることで、強さだけでなく、余白・抜け感・女性らしさが伝わるトーンに整えました。",
+  },
+  {
+    title: "エディトリアル感のある余白",
+    text: "商品情報を詰め込みすぎず、写真とコピーが静かに響く間をつくることで、ラグジュアリーなファッション誌のような余韻を目指しました。",
+  },
+  {
+    title: "ブランドムードを伝える導線",
+    text: "CollectionやLookbookへ自然に進めるよう、商品説明より先に世界観を伝え、見た人が“どんな印象になれるか”を想像できる構成にしました。",
+  },
+  {
+    title: "可読性と繊細さの両立",
+    text: "細い文字組みや小さなラベルで上質感を保ちながら、本文は行間・文字間・濃度を調整し、スマートフォンでも読みやすいバランスにしています。",
+  },
+];
+
 export default function MeliaNoirPage() {
   return (
     <main className="min-h-screen bg-[#fbfaf6] text-[#17130f]">
@@ -17,17 +60,17 @@ export default function MeliaNoirPage() {
                 NOIR
               </h1>
 
-              <p className="mt-8 max-w-xl text-sm font-light leading-[2.1] tracking-[0.08em] text-[#4f4942] md:text-base">
+              <p className="mt-8 max-w-xl text-sm font-light leading-[2.1] tracking-[0.06em] text-[#4f4944] md:text-base">
                 静かな強さと女性らしさをまとう、
                 <br className="hidden md:block" />
-                ファッションブランドのLP。
+                ラグジュアリーファッションブランドのLP。
               </p>
             </div>
 
             <div className="border-l border-[#ded7ca] pl-6 text-xs font-light leading-[2] tracking-[0.08em] text-[#6d655b]">
-              <p>Role：Brand Direction / LP Design / Coding</p>
-              <p>Tools：Figma / VS Code / React / CSS</p>
-              <p>Type：Luxury Fashion Landing Page</p>
+              {caseMeta.map((item) => (
+                <p key={item}>{item}</p>
+              ))}
             </div>
           </div>
 
@@ -51,17 +94,41 @@ export default function MeliaNoirPage() {
             </p>
           </div>
 
-          <div className="space-y-8 text-sm font-light leading-[2.2] tracking-[0.08em] text-[#4f4942] md:text-base">
+          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
             <p>
               MÉLIA
-              NOIRは、架空のラグジュアリーファッションブランドを想定して制作したLPです。
-              ブラック・アイボリー・ベージュを基調に、静けさの中に凛とした存在感が伝わる世界観を設計しました。
+              NOIRは、大人女性向けのラグジュアリーファッションブランドを想定して制作した自主制作LPです。
+              商品そのものだけでなく、ブランドの世界観や、身にまとうことで生まれる印象まで伝わることを意識しました。
             </p>
 
             <p>
-              商品をただ紹介するのではなく、ブランドの空気感や美意識そのものが伝わるよう、
-              写真・余白・言葉・タイポグラフィのバランスを丁寧に整えています。
+              ブラック・アイボリー・ベージュを基調に、甘さと強さ、静けさと華やかさのバランスを調整。
+              写真・余白・コピー・タイポグラフィを一貫させることで、静かな高級感が伝わるLPに整えています。
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20 md:px-10 lg:px-16">
+        <div className="mx-auto max-w-6xl">
+          <p className="mb-10 text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+            Target / Goal / Challenge
+          </p>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {projectDetails.map((item) => (
+              <div
+                key={item.title}
+                className="border border-[#e4ddd2] bg-white/65 p-7 md:p-8"
+              >
+                <p className="mb-5 font-serif text-2xl font-light tracking-tight text-[#17130f]">
+                  {item.title}
+                </p>
+                <p className="text-sm font-light leading-[2] tracking-[0.06em] text-[#4f4944]">
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -74,16 +141,21 @@ export default function MeliaNoirPage() {
             </p>
           </div>
 
-          <div className="space-y-8 text-sm font-light leading-[2.2] tracking-[0.08em] text-[#4f4942] md:text-base">
+          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
             <p>
               ファッションブランドのLPでは、商品写真を並べるだけではなく、
-              どんな人に、どんな気分で選ばれるブランドなのかを伝えることが大切です。
+              「どんな人に、どんな気分で選ばれるブランドなのか」を伝えることが大切です。
             </p>
 
             <p>
               MÉLIA
-              NOIRでは、甘さに寄せすぎず、女性らしさの中に芯の強さを感じられるように、
-              色数を抑え、余白を広く使い、静かな高級感を表現しました。
+              NOIRでは、甘さに寄りすぎず、女性らしさの中に芯の強さを感じられるように、
+              色数を抑え、余白を広く使い、静かな存在感を表現しました。
+            </p>
+
+            <p>
+              さらに、Collection・Lookbook・Featureへ自然に視線が流れるように、
+              ブランド認知から商品理解へつながる順番を意識しています。
             </p>
           </div>
         </div>
@@ -104,7 +176,7 @@ export default function MeliaNoirPage() {
               やわらかな強さを。
             </h2>
 
-            <div className="mt-10 space-y-8 text-sm font-light leading-[2.2] tracking-[0.08em] text-[#4f4942] md:text-base">
+            <div className="mt-10 space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
               <p>
                 コンセプトは、静かな美しさと芯のある女性らしさ。
                 黒を主役にしながら、アイボリーやベージュの余白で重たくなりすぎない印象に整えました。
@@ -112,7 +184,7 @@ export default function MeliaNoirPage() {
 
               <p>
                 写真は大きく見せつつも、余白を残すことで、
-                ラグジュアリーなファッション誌のような余韻を意識しています。
+                ラグジュアリーなファッション誌のような余韻を感じられるビジュアルを目指しています。
               </p>
             </div>
           </div>
@@ -127,7 +199,7 @@ export default function MeliaNoirPage() {
             </p>
           </div>
 
-          <div className="space-y-8 text-sm font-light leading-[2.2] tracking-[0.08em] text-[#4f4942] md:text-base">
+          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
             <p>
               制作初期のコンセプト整理、コピーのブラッシュアップ、ビジュアルの方向性検討、
               実装時のコード修正補助にAIを活用しました。
@@ -148,24 +220,44 @@ export default function MeliaNoirPage() {
           </p>
 
           <div className="grid gap-4 md:grid-cols-2">
-            {[
-              "ブラックを主役に、アイボリーとベージュで上質な抜け感を演出",
-              "セリフ体と繊細な余白で、ラグジュアリーなブランド感を表現",
-              "写真のトーンを統一し、LP全体に一貫した世界観を設計",
-              "商品紹介よりもブランドの空気感が伝わる構成を意識",
-            ].map((item, index) => (
+            {designPoints.map((item, index) => (
               <div
-                key={item}
-                className="border border-[#e4ddd2] bg-white/60 p-6 md:p-8"
+                key={item.title}
+                className="border border-[#e4ddd2] bg-white/65 p-7 md:p-9"
               >
                 <p className="mb-6 font-serif text-3xl font-light text-[#d5c9ba]">
-                  0{index + 1}
+                  {String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="text-sm font-light leading-[2] tracking-[0.08em] text-[#4f4942]">
-                  {item}
+                <h3 className="mb-4 text-base font-light leading-[1.8] tracking-[0.08em] text-[#17130f]">
+                  {item.title}
+                </h3>
+                <p className="text-sm font-light leading-[2] tracking-[0.06em] text-[#4f4944]">
+                  {item.text}
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20 md:px-10 lg:px-16">
+        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.35fr_0.65fr]">
+          <div>
+            <p className="text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+              Expected Effect
+            </p>
+          </div>
+
+          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
+            <p>
+              ブランドの世界観を一貫して伝えることで、商品単体の魅力だけでなく、
+              「このブランドを身にまといたい」と感じてもらえる印象設計を目指しました。
+            </p>
+
+            <p>
+              Collectionページへの回遊や商品理解を促し、ブランド認知から購入意欲につながるLPとして設計しています。
+              数値実績を盛るのではなく、想定課題に対する導線設計と表現意図が伝わる構成にしました。
+            </p>
           </div>
         </div>
       </section>
