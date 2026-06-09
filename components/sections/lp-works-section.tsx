@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { LineReveal } from "@/components/text-reveal";
 
@@ -12,6 +13,7 @@ const featuredLpWork = {
     "呼吸・姿勢・心を整えるというコンセプトを軸に、初めての方でも安心して体験予約へ進めるよう設計した女性専用プライベートピラティススタジオLP。",
   image: "/works/lp-lunea-pilates1.webp",
   url: "https://lunea-pilates-lp.vercel.app/",
+  caseStudyUrl: "/works/lunea-pilates",
   tags: ["Wellness", "Reservation Flow", "Sage Design"],
 };
 
@@ -133,10 +135,7 @@ export function LpWorksSection() {
         </motion.div>
 
         {/* Featured LP */}
-        <motion.a
-          href={featuredLpWork.url}
-          target="_blank"
-          rel="noopener noreferrer"
+        <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
           transition={{
@@ -221,16 +220,31 @@ export function LpWorksSection() {
               </div>
             </div>
 
-            <div className="mt-10 flex items-center justify-between border-t border-foreground/10 pt-5">
-              <p className="text-[13px] font-light uppercase tracking-[0.2em] text-foreground/70">
+            <div className="mt-10 flex flex-col gap-4 border-t border-foreground/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
+              <Link
+                href={featuredLpWork.caseStudyUrl}
+                className="inline-flex w-fit items-center gap-3 text-[13px] font-light uppercase tracking-[0.2em] text-foreground/70 transition hover:text-[#C99DA8]"
+              >
+                View Case Study
+                <span className="text-lg font-light text-foreground/35 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[#C99DA8]">
+                  →
+                </span>
+              </Link>
+
+              <a
+                href={featuredLpWork.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center gap-3 text-[13px] font-light uppercase tracking-[0.2em] text-foreground/45 transition hover:text-foreground/70"
+              >
                 Visit Site
-              </p>
-              <span className="text-lg font-light text-foreground/35 transition-transform duration-300 group-hover:translate-x-2 group-hover:text-[#C99DA8]">
-                →
-              </span>
+                <span className="text-lg font-light text-foreground/30 transition-transform duration-300 hover:translate-x-1 hover:text-[#C99DA8]">
+                  →
+                </span>
+              </a>
             </div>
           </div>
-        </motion.a>
+        </motion.div>
 
         {/* Cards Grid - 3 columns */}
         <div className="grid grid-cols-1 gap-y-20 gap-x-6 md:grid-cols-3 md:gap-6">
