@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { CharacterReveal, LineReveal } from '@/components/text-reveal'
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { CharacterReveal, LineReveal } from "@/components/text-reveal";
 
 export function HeroSection() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end start'],
-  })
+    offset: ["start start", "end start"],
+  });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, 100])
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
   return (
     <section
@@ -40,10 +40,18 @@ export function HeroSection() {
         </div>
 
         {/* Subtitle */}
-        <div className="max-w-xl md:ml-auto md:mr-24">
+        <div className="max-w-2xl md:ml-auto md:mr-40">
           <LineReveal delay={1.2}>
-            <p className="font-serif text-lg leading-relaxed tracking-wide text-foreground/80 md:text-xl">
+            <p className="font-serif text-xl leading-relaxed tracking-tight text-foreground/90 md:text-2xl">
               丁寧に寄り添い、心を動かすデザインを。
+            </p>
+          </LineReveal>
+
+          <LineReveal delay={1.35}>
+            <p className="mt-5 font-light leading-relaxed text-foreground/60 md:text-base">
+              見た目の美しさだけでなく、届けたい相手・伝える順番・行動まで考え、
+              <br className="hidden md:block" />
+              成果につながるデザインへ整えます。
             </p>
           </LineReveal>
         </div>
@@ -61,7 +69,7 @@ export function HeroSection() {
         </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
           className="h-8 w-px bg-foreground/30"
         />
       </motion.div>
@@ -74,5 +82,5 @@ export function HeroSection() {
         className="absolute bottom-0 left-6 right-6 h-px origin-left bg-border md:left-12 md:right-12"
       />
     </section>
-  )
+  );
 }

@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { LineReveal, TextReveal } from "@/components/text-reveal";
+import { LineReveal } from "@/components/text-reveal";
 
 const featuredLpWork = {
   title: "LUNÉA PILATES",
@@ -73,18 +73,49 @@ export function LpWorksSection() {
       ref={containerRef}
       className="relative px-6 py-[var(--section-gap)] md:px-12"
     >
+      <style jsx>{`
+        .refined-scroll::-webkit-scrollbar {
+          width: 4px;
+        }
+        .refined-scroll::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .refined-scroll::-webkit-scrollbar-thumb {
+          background: rgba(201, 169, 110, 0.42);
+          border-radius: 2px;
+          transition: background 0.3s ease;
+        }
+        .refined-scroll::-webkit-scrollbar-thumb:hover {
+          background: rgba(201, 157, 168, 0.62);
+        }
+        .refined-scroll {
+          scrollbar-width: thin;
+          scrollbar-color: rgba(201, 169, 110, 0.42) transparent;
+          overscroll-behavior: contain;
+        }
+      `}</style>
+
       <div className="mx-auto max-w-[1440px]">
         {/* Section Label */}
         <LineReveal>
-          <span className="mb-8 block text-sm font-light uppercase tracking-widest text-foreground/50">
+          <span className="mb-9 block text-[13px] font-light uppercase leading-none tracking-[0.28em] text-foreground/45">
             LP Works
           </span>
         </LineReveal>
 
         {/* Section Heading */}
-        <h2 className="mb-6 font-serif text-3xl tracking-tight md:text-4xl lg:text-5xl">
-          <TextReveal delay={0.2}>Landing Pages</TextReveal>
-        </h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 18 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+          transition={{
+            duration: 0.85,
+            ease: [0.25, 0.1, 0.25, 1],
+            delay: 0.2,
+          }}
+          className="mb-6 overflow-visible pb-5 pr-5 font-serif text-[clamp(42px,5vw,72px)] font-normal leading-[1.18] tracking-[-0.035em] text-foreground md:mb-7 md:pb-6"
+        >
+          Landing Pages
+        </motion.h2>
 
         {/* Intro Copy */}
         <motion.div
@@ -95,14 +126,10 @@ export function LpWorksSection() {
             ease: [0.25, 0.1, 0.25, 1],
             delay: 0.4,
           }}
-          className="mb-12 max-w-2xl space-y-4 font-light leading-relaxed text-foreground/70 md:mb-16"
+          className="mb-14 max-w-xl space-y-3 text-[14px] font-light leading-[2.05] tracking-[0.015em] text-foreground/65 md:mb-16 md:text-[15px]"
         >
-          <p className="text-base md:text-lg">
-            想いや魅力が、きちんと届くように。
-          </p>
-          <p className="text-base md:text-lg">
-            世界観、言葉、導線を整えたLPデザインです。
-          </p>
+          <p>想いや魅力が、きちんと届くように。</p>
+          <p>世界観、言葉、導線を整えたLPデザインです。</p>
         </motion.div>
 
         {/* Featured LP */}
@@ -117,7 +144,7 @@ export function LpWorksSection() {
             ease: [0.22, 1, 0.36, 1],
             delay: 0.15,
           }}
-          className="group mb-60 grid overflow-hidden rounded-[2px] border border-foreground/10 bg-background shadow-[0_24px_70px_-28px_rgba(0,0,0,0.18)] transition-shadow duration-500 hover:shadow-[0_30px_80px_-28px_rgba(201,157,168,0.28)] md:grid-cols-[1.35fr_0.9fr]"
+          className="group mb-60 grid overflow-hidden rounded-[2px] border border-foreground/10 bg-background shadow-[0_18px_45px_-24px_rgba(0,0,0,0.22),0_8px_22px_-18px_rgba(0,0,0,0.12)] transition-shadow duration-500 hover:shadow-[0_26px_64px_-26px_rgba(201,157,168,0.32),0_12px_30px_-18px_rgba(201,169,110,0.18)] md:grid-cols-[1.35fr_0.9fr]"
         >
           <div className="relative overflow-hidden bg-foreground/5">
             <div
@@ -133,7 +160,7 @@ export function LpWorksSection() {
                 element.scrollTop += event.deltaY;
                 handleFeaturedScroll();
               }}
-              className="refined-scroll-gold h-[340px] cursor-ns-resize overflow-y-scroll overscroll-contain md:h-[460px] lg:h-[500px]"
+              className="refined-scroll h-[340px] cursor-ns-resize overflow-y-scroll overscroll-contain md:h-[460px] lg:h-[500px]"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -153,32 +180,32 @@ export function LpWorksSection() {
             </div>
 
             <div className="flex items-center justify-between border-t border-foreground/10 px-4 py-2.5">
-              <p className="text-xs font-light uppercase tracking-widest text-foreground/40 transition-colors duration-300">
+              <p className="text-[11px] font-light uppercase tracking-[0.24em] text-foreground/38 transition-colors duration-300">
                 {isFeaturedAtEnd
                   ? "→ End of the page"
                   : "↓ Scroll to see the full page"}
               </p>
-              <span className="text-xs font-light tabular-nums tracking-widest text-foreground/30">
+              <span className="text-[11px] font-light tabular-nums tracking-[0.24em] text-foreground/28">
                 {Math.round(featuredScrollProgress)}%
               </span>
             </div>
 
-            <div className="absolute left-5 top-5 rounded-full border border-white/50 bg-white/80 px-4 py-2 text-[11px] font-light uppercase tracking-[0.22em] text-foreground/60 backdrop-blur-sm">
+            <div className="absolute left-5 top-5 rounded-full border border-white/45 bg-white/78 px-4 py-2 text-[10px] font-light uppercase tracking-[0.24em] text-foreground/52 backdrop-blur-sm">
               {featuredLpWork.label}
             </div>
           </div>
 
-          <div className="flex flex-col justify-between px-7 py-8 md:px-10 md:py-10 lg:px-12">
+          <div className="flex flex-col justify-between px-7 py-8 font-sans md:px-10 md:py-10 lg:px-12">
             <div>
-              <span className="mb-4 block text-xs font-light uppercase tracking-widest text-foreground/50">
+              <span className="mb-5 block text-[11px] font-light uppercase tracking-[0.28em] text-foreground/40">
                 {featuredLpWork.category}
               </span>
 
-              <h3 className="mb-5 font-serif text-3xl tracking-tight transition-colors duration-300 group-hover:text-[#C99DA8] md:text-4xl">
+              <h3 className="mb-5 font-serif text-[clamp(34px,3.3vw,48px)] font-normal leading-[0.98] tracking-[-0.045em] text-foreground transition-colors duration-300 group-hover:text-[#C99DA8]">
                 {featuredLpWork.title}
               </h3>
 
-              <p className="max-w-xl text-sm font-light leading-relaxed text-foreground/70 md:text-base">
+              <p className="max-w-xl text-[14px] font-light leading-[2.05] tracking-[0.015em] text-foreground/70 md:text-[15px]">
                 {featuredLpWork.catch}
               </p>
 
@@ -186,7 +213,7 @@ export function LpWorksSection() {
                 {featuredLpWork.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-foreground/10 px-3 py-1.5 text-[11px] font-light uppercase tracking-[0.18em] text-foreground/50"
+                    className="rounded-full border border-foreground/10 px-3 py-1.5 text-[10px] font-light uppercase tracking-[0.18em] text-foreground/45"
                   >
                     {tag}
                   </span>
@@ -195,10 +222,10 @@ export function LpWorksSection() {
             </div>
 
             <div className="mt-10 flex items-center justify-between border-t border-foreground/10 pt-5">
-              <p className="text-xs font-light uppercase tracking-widest text-foreground/40">
+              <p className="text-[13px] font-light uppercase tracking-[0.2em] text-foreground/70">
                 Visit Site
               </p>
-              <span className="text-lg font-light text-foreground/30 transition-transform duration-300 group-hover:translate-x-2 group-hover:text-[#C99DA8]">
+              <span className="text-lg font-light text-foreground/35 transition-transform duration-300 group-hover:translate-x-2 group-hover:text-[#C99DA8]">
                 →
               </span>
             </div>
@@ -223,7 +250,7 @@ export function LpWorksSection() {
               className="group block"
             >
               {/* Image Card */}
-              <div className="relative overflow-hidden rounded-[2px] border border-foreground/10 bg-background shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15),0_10px_25px_-15px_rgba(0,0,0,0.08)] transition-shadow duration-500 group-hover:shadow-[0_25px_60px_-20px_rgba(201,157,168,0.25),0_15px_30px_-15px_rgba(201,157,168,0.15)]">
+              <div className="relative overflow-hidden rounded-[2px] border border-foreground/10 bg-background shadow-[0_18px_45px_-24px_rgba(0,0,0,0.22),0_8px_22px_-18px_rgba(0,0,0,0.12)] transition-shadow duration-500 group-hover:shadow-[0_25px_60px_-20px_rgba(201,157,168,0.25),0_15px_30px_-15px_rgba(201,157,168,0.15)]">
                 <div className="h-[380px] overflow-hidden md:h-[420px] lg:h-[460px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -242,7 +269,7 @@ export function LpWorksSection() {
 
                 {/* Hover Hint */}
                 <div className="flex items-center justify-between border-t border-foreground/10 px-4 py-2.5">
-                  <p className="text-xs font-light uppercase tracking-widest text-foreground/40">
+                  <p className="text-[13px] font-light uppercase tracking-[0.2em] text-foreground/70">
                     Visit Site
                   </p>
                   <span className="text-xs font-light text-foreground/30 transition-transform duration-300 group-hover:translate-x-2 group-hover:text-[#C99DA8]">
@@ -253,13 +280,13 @@ export function LpWorksSection() {
 
               {/* Card Info */}
               <div className="mt-6">
-                <span className="mb-3 block text-xs font-light uppercase tracking-widest text-foreground/50">
+                <span className="mb-3 block text-[11px] font-light uppercase tracking-[0.26em] text-foreground/42">
                   {work.category}
                 </span>
-                <h3 className="mb-4 font-serif text-xl tracking-tight transition-colors duration-300 group-hover:text-[#C99DA8] md:text-2xl">
+                <h3 className="mb-4 font-serif text-[24px] font-normal leading-[1.05] tracking-[-0.04em] text-foreground transition-colors duration-300 group-hover:text-[#C99DA8] md:text-[28px]">
                   {work.title}
                 </h3>
-                <p className="text-sm font-light leading-relaxed text-foreground/70">
+                <p className="text-[14px] font-light leading-[2.05] tracking-[0.015em] text-foreground/68">
                   {work.catch}
                 </p>
               </div>

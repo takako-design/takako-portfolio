@@ -1,24 +1,191 @@
 "use client";
 
-import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, type UIEvent } from "react";
 import { LineReveal, TextReveal } from "@/components/text-reveal";
 
-export function WebWorksSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+type Project = {
+  title: string;
+  client: string;
+  year: string;
+  role: string;
+  stack: string;
+  designPoint: string;
+  description: string[];
+  liveHref: string;
+  caseHref: string;
+  imageSrc: string;
+  imageAlt: string;
+};
 
-  // スクロール進捗を0〜100のパーセンテージで管理
+const projects: Project[] = [
+  {
+    title: "LENTO BLOOM",
+    client: "フラワーギフトブランド",
+    year: "2026",
+    role: "Concept / Shopify Design / Copywriting",
+    stack: "Shopify / Theme Customization",
+    designPoint: "贈る相手やシーンを想像しながら、安心して選べるECサイトへ。",
+    description: [
+      "花と香りのギフトを扱う、架空のShopify ECサイトです。誕生日や記念日、自分へのご褒美など、特別感のある贈り物を探す女性を想定して制作しました。",
+      "商品写真、コピー、余白、配色を統一し、上質でやわらかな世界観を設計。商品一覧だけでなく、詳細ページや購入前の確認項目まで整え、迷わず選べる導線を意識しています。",
+    ],
+    liveHref: "https://p7vd1p-7p.myshopify.com/",
+    caseHref: "/works/lento-bloom",
+    imageSrc: "/works/lento-bloom-home-pc.webp",
+    imageAlt: "LENTO BLOOM - Shopify EC Site",
+  },
+  {
+    title: "NO.8 HAIR SALON",
+    client: "プライベート美容室",
+    year: "2026",
+    role: "Concept / Web Design",
+    stack: "WordPress / Lab23",
+    designPoint:
+      "完全予約制・一席のみの特別感を、静かな余白と予約導線で伝える。",
+    description: [
+      "大型サロンではなく、一人のスタイリストに丁寧に任せたい女性へ向けたプライベート美容室サイトです。落ち着いた空間で過ごす“自分だけの時間”が伝わるよう設計しました。",
+      "黒とゴールド、セリフ体のタイポグラフィ、余白を活かしてモードな印象に。メニュー・アクセス・予約導線を整理し、初めての方でも迷わず来店予約へ進める構成にしています。",
+    ],
+    liveHref: "https://no8-hair.lentodesign.com/",
+    caseHref: "/works/no8-hair-salon",
+    imageSrc: "/works/featured-no8-full.webp",
+    imageAlt: "No.8 hair salon - フルページ",
+  },
+  {
+    title: "MÉLIA NOIR",
+    client: "ファッションブランド",
+    year: "2026",
+    role: "Concept / Web Design / Copy / Visual Direction",
+    stack: "Next.js / TypeScript / Tailwind CSS",
+    designPoint: "商品を並べるだけでなく、ブランドの憧れまで伝えるLPへ。",
+    description: [
+      "甘さと強さ、静けさと華やかさを重ねた、架空のファッションブランドLPです。上品さとモード感を両立したい大人女性を想定して制作しました。",
+      "黒・ベージュ・ゴールドを基調に、余白、写真、タイポグラフィを丁寧に設計。Collectionページや商品詳細まで展開し、ブランドの空気感を感じながら回遊できる構成にしています。",
+    ],
+    liveHref: "https://melia-noir.lentodesign.com/",
+    caseHref: "/works/melia-noir",
+    imageSrc: "/works/melia-noir-full.webp",
+    imageAlt: "MÉLIA NOIR - フルページ",
+  },
+];
+
+type ProjectInfoProps = {
+  project: Project;
+  isInView: boolean;
+  index: number;
+};
+
+function ProjectInfo({ project, isInView, index }: ProjectInfoProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: 0.25 + index * 0.08,
+      }}
+      className="max-w-[470px] font-sans"
+    >
+      <h3 className="mb-8 font-serif text-[clamp(40px,4.1vw,60px)] font-normal leading-[0.95] tracking-[-0.045em] text-foreground">
+        <TextReveal delay={0.45}>{project.title}</TextReveal>
+      </h3>
+
+      <dl className="mb-8 grid grid-cols-[72px_1fr] gap-x-5 gap-y-3.5 text-[14px] leading-[1.85] md:text-[15px]">
+        <dt className="font-light uppercase tracking-[0.24em] text-foreground/45">
+          Client
+        </dt>
+        <dd className="font-light tracking-[0.01em] text-foreground/64">
+          {project.client}
+        </dd>
+
+        <dt className="font-light uppercase tracking-[0.24em] text-foreground/45">
+          Year
+        </dt>
+        <dd className="font-light tabular-nums tracking-[0.01em] text-foreground/64">
+          {project.year}
+        </dd>
+
+        <dt className="font-light uppercase tracking-[0.24em] text-foreground/45">
+          Role
+        </dt>
+        <dd className="font-light tracking-[0.01em] text-foreground/64">
+          {project.role}
+        </dd>
+
+        <dt className="font-light uppercase tracking-[0.24em] text-foreground/45">
+          Stack
+        </dt>
+        <dd className="font-light tracking-[0.01em] text-foreground/64">
+          {project.stack}
+        </dd>
+      </dl>
+
+      <div className="mb-7 border-l border-foreground/15 pl-5">
+        <p className="mb-2 text-[11px] font-light uppercase tracking-[0.28em] text-foreground/40">
+          Design Point
+        </p>
+        <p className="font-serif text-[20px] font-normal leading-[1.75] tracking-[-0.035em] text-foreground/84 md:text-[21px]">
+          {project.designPoint}
+        </p>
+      </div>
+
+      <div className="mb-8 space-y-4 text-[14px] font-light leading-[2.05] tracking-[0.015em] text-foreground/70 md:text-[15px]">
+        {project.description.map((text) => (
+          <p key={text}>{text}</p>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+        <a
+          href={project.liveHref}
+          target="_blank"
+          rel="noreferrer"
+          className="group inline-flex items-center gap-2 border-b border-foreground/20 pb-1.5 text-[13px] font-light uppercase tracking-[0.2em] text-foreground/74 transition-colors hover:border-foreground hover:text-foreground"
+        >
+          Visit Live Site
+          <span className="transition-transform duration-300 group-hover:translate-x-1">
+            →
+          </span>
+        </a>
+
+        <a
+          href={project.caseHref}
+          className="group inline-flex items-center gap-2 border-b border-foreground/20 pb-1.5 text-[13px] font-light uppercase tracking-[0.2em] text-foreground/74 transition-colors hover:border-foreground hover:text-foreground"
+        >
+          View Case Study
+          <span className="transition-transform duration-300 group-hover:translate-x-1">
+            →
+          </span>
+        </a>
+      </div>
+    </motion.div>
+  );
+}
+
+type ScrollableProjectImageProps = {
+  project: Project;
+  isInView: boolean;
+  index: number;
+};
+
+function ScrollableProjectImage({
+  project,
+  isInView,
+  index,
+}: ScrollableProjectImageProps) {
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+  const handleScroll = (e: UIEvent<HTMLDivElement>) => {
     const el = e.currentTarget;
     const maxScroll = el.scrollHeight - el.clientHeight;
+
     if (maxScroll <= 0) {
       setScrollProgress(0);
       return;
     }
+
     const progress = (el.scrollTop / maxScroll) * 100;
     setScrollProgress(Math.min(100, Math.max(0, progress)));
   };
@@ -26,441 +193,110 @@ export function WebWorksSection() {
   const isAtEnd = scrollProgress >= 95;
 
   return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{
+        duration: 1,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: 0.2 + index * 0.08,
+      }}
+      className="overflow-hidden rounded-[2px] border border-foreground/10 bg-background shadow-[0_18px_45px_-24px_rgba(0,0,0,0.22),0_8px_22px_-18px_rgba(0,0,0,0.12)]"
+    >
+      <div
+        onScroll={handleScroll}
+        data-lenis-prevent
+        className="refined-scroll h-[500px] overflow-y-auto md:h-[640px] lg:h-[660px]"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={project.imageSrc}
+          alt={project.imageAlt}
+          className="w-full"
+          loading="lazy"
+        />
+      </div>
+
+      <div className="relative h-px w-full bg-foreground/5">
+        <div
+          className="absolute left-0 top-0 h-full bg-foreground/35 transition-[width] duration-150 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
+      <div className="flex items-center justify-between border-t border-foreground/10 px-4 py-2.5">
+        <p className="text-[11px] font-light uppercase tracking-[0.24em] text-foreground/38 transition-colors duration-300">
+          {isAtEnd ? "— End of the page —" : "↓ Scroll to see the full page"}
+        </p>
+        <span className="text-[11px] font-light tabular-nums tracking-[0.24em] text-foreground/28">
+          {Math.round(scrollProgress)}%
+        </span>
+      </div>
+    </motion.div>
+  );
+}
+
+export function WebWorksSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+
+  return (
     <section
       ref={containerRef}
       className="relative px-6 py-[var(--section-gap)] md:px-12"
     >
-      {/* 極細スクロールバー用のローカルスタイル */}
       <style jsx>{`
-        .refined-scroll-gold::-webkit-scrollbar {
+        .refined-scroll::-webkit-scrollbar {
           width: 4px;
         }
-        .refined-scroll-gold::-webkit-scrollbar-track {
+        .refined-scroll::-webkit-scrollbar-track {
           background: transparent;
         }
-        .refined-scroll-gold::-webkit-scrollbar-thumb {
-          background: rgba(201, 169, 110, 0.4);
+        .refined-scroll::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 0.14);
           border-radius: 2px;
           transition: background 0.3s ease;
         }
-        .refined-scroll-gold::-webkit-scrollbar-thumb:hover {
-          background: rgba(201, 169, 110, 0.7);
+        .refined-scroll::-webkit-scrollbar-thumb:hover {
+          background: rgba(0, 0, 0, 0.28);
         }
-        .refined-scroll-gold {
+        .refined-scroll {
           scrollbar-width: thin;
-          scrollbar-color: rgba(201, 169, 110, 0.4) transparent;
+          scrollbar-color: rgba(0, 0, 0, 0.14) transparent;
           overscroll-behavior: contain;
         }
       `}</style>
 
       <div className="mx-auto max-w-[1440px]">
-        {/* Section Label */}
         <LineReveal>
-          <span className="mb-8 block text-sm font-light uppercase tracking-widest text-foreground/50">
+          <span className="mb-9 block text-[13px] font-light uppercase leading-none tracking-[0.28em] text-foreground/45">
             Selected Work
           </span>
         </LineReveal>
 
-        {/* LENTO BLOOM */}
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          {/* Project Info */}
-          <div className="order-2 flex flex-col justify-end lg:order-1 lg:col-span-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{
-                duration: 0.8,
-                ease: [0.25, 0.1, 0.25, 1],
-                delay: 0.5,
-              }}
+        <div className="space-y-24 md:space-y-28">
+          {projects.map((project, index) => (
+            <div
+              key={project.title}
+              className="grid gap-11 lg:grid-cols-12 lg:items-start lg:gap-12 xl:gap-16"
             >
-              <h3 className="mb-8 font-serif text-3xl tracking-tight md:text-4xl lg:text-5xl">
-                <TextReveal delay={0.7}>LENTO BLOOM</TextReveal>
-              </h3>
-
-              <dl className="mb-8 space-y-4 text-sm">
-                <div className="flex gap-4">
-                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
-                    Client
-                  </dt>
-                  <dd className="font-light">フラワーギフトブランド</dd>
-                </div>
-                <div className="flex gap-4">
-                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
-                    Year
-                  </dt>
-                  <dd className="font-light">2026</dd>
-                </div>
-                <div className="flex gap-4">
-                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
-                    Role
-                  </dt>
-                  <dd className="font-light">
-                    Concept / Shopify Design / Copywriting
-                  </dd>
-                </div>
-                <div className="flex gap-4">
-                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
-                    Stack
-                  </dt>
-                  <dd className="font-light">Shopify / Theme Customization</dd>
-                </div>
-              </dl>
-
-              <div className="mb-8 space-y-4 font-light leading-relaxed text-foreground/70">
-                <p>
-                  LENTO BLOOMは、花と香りのギフトを扱う架空のShopify
-                  ECサイトです。
-                </p>
-                <p>
-                  大切な人への贈り物や、自分へのご褒美として選ばれるフラワーギフトを想定し、商品写真、コピー、余白、配色を統一して上質でやわらかな世界観を設計しました。
-                </p>
-                <p className="text-foreground/80">
-                  商品一覧だけでなく、商品詳細ページや購入前の確認項目まで整え、「安心して選べるECサイト」として見せられる作品です。
-                </p>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-6">
-                <a
-                  href="https://p7vd1p-7p.myshopify.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group inline-flex items-center gap-2 border-b border-foreground/20 pb-1 text-sm font-light uppercase tracking-widest text-foreground transition hover:border-[#b86f63] hover:text-[#b86f63]"
-                >
-                  Visit Live Site
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </a>
-
-                <a
-                  href="/works/lento-bloom"
-                  className="group inline-flex items-center gap-2 border-b border-foreground/20 pb-1 text-sm font-light uppercase tracking-widest text-foreground transition hover:border-[#b86f63] hover:text-[#b86f63]"
-                >
-                  View Case Study
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </a>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Image Column */}
-          <div className="order-1 lg:order-2 lg:col-span-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{
-                duration: 1,
-                ease: [0.25, 0.1, 0.25, 1],
-                delay: 0.3,
-              }}
-              className="overflow-hidden rounded-[2px] border border-foreground/10 bg-background shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15),0_10px_25px_-15px_rgba(0,0,0,0.08)]"
-            >
-              <div
-                onScroll={handleScroll}
-                data-lenis-prevent
-                className="refined-scroll-gold h-[500px] overflow-y-auto md:h-[700px]"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/works/lento-bloom-home-pc.webp"
-                  alt="LENTO BLOOM - Shopify EC Site"
-                  className="w-full"
-                  loading="lazy"
+              <div className="order-2 lg:order-1 lg:col-span-4">
+                <ProjectInfo
+                  project={project}
+                  isInView={isInView}
+                  index={index}
                 />
               </div>
 
-              <div className="relative h-[2px] w-full bg-foreground/5">
-                <div
-                  className="absolute left-0 top-0 h-full bg-[#C9A96E] transition-[width] duration-150 ease-out"
-                  style={{ width: `${scrollProgress}%` }}
+              <div className="order-1 lg:order-2 lg:col-span-8">
+                <ScrollableProjectImage
+                  project={project}
+                  isInView={isInView}
+                  index={index}
                 />
               </div>
-
-              <div className="flex items-center justify-between border-t border-foreground/10 px-4 py-2.5">
-                <p className="text-xs font-light uppercase tracking-widest text-foreground/40 transition-colors duration-300">
-                  {isAtEnd
-                    ? "— End of the page —"
-                    : "↓ Scroll to see the full page"}
-                </p>
-                <span className="text-xs font-light tabular-nums tracking-widest text-foreground/30">
-                  {Math.round(scrollProgress)}%
-                </span>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        <div className="mt-20 md:mt-28" />
-
-        {/* Main Content Grid - 左右反転: 情報(左) + 画像(右) */}
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          {/* Project Info (Left) */}
-          <div className="order-2 flex flex-col justify-end lg:order-1 lg:col-span-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{
-                duration: 0.8,
-                ease: [0.25, 0.1, 0.25, 1],
-                delay: 0.5,
-              }}
-            >
-              <h3 className="mb-8 font-serif text-3xl tracking-tight md:text-4xl lg:text-5xl">
-                <TextReveal delay={0.7}>No.8 hair salon</TextReveal>
-              </h3>
-
-              <dl className="mb-8 space-y-4 text-sm">
-                <div className="flex gap-4">
-                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
-                    Client
-                  </dt>
-                  <dd className="font-light">プライベート美容室</dd>
-                </div>
-                <div className="flex gap-4">
-                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
-                    Year
-                  </dt>
-                  <dd className="font-light">2026</dd>
-                </div>
-                <div className="flex gap-4">
-                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
-                    Role
-                  </dt>
-                  <dd className="font-light">Concept / Web Design</dd>
-                </div>
-                <div className="flex gap-4">
-                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
-                    Stack
-                  </dt>
-                  <dd className="font-light">WordPress / Lab23</dd>
-                </div>
-              </dl>
-
-              <div className="mb-8 space-y-4 font-light leading-relaxed text-foreground/70">
-                <p>
-                  KUKKA
-                  LIVINGで向き合った「介護の温かさ」とは真逆の、NYモードの削ぎ落とされた世界観。この大胆な振れ幅こそ、「寄り添い」を軸にしたデザインの柔軟性だと考えています。
-                </p>
-                <p>
-                  「完全予約制・1席のみ」というオーナーの哲学を、ブラック×ゴールドの配色、セリフ体のタイポグラフィ、余白を贅沢に使ったレイアウトで表現。「美容室らしくない」ビジュアルで、30〜40代の働く女性が求める"自分だけの時間"を訴求しました。
-                </p>
-                <p className="text-foreground/80">
-                  介護の現場で学んだ「一人ひとりに寄り添う姿勢」は、どんなジャンルのデザインにも通じる——それを証明した作品です。
-                </p>
-              </div>
-
-              {/* Live Site Link - ゴールドアクセント */}
-              <a
-                href="https://no8-hair.lentodesign.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 border-b border-[#C9A96E]/40 pb-1 text-sm font-light uppercase tracking-widest text-foreground/90 transition-colors hover:border-[#C9A96E]"
-              >
-                Visit Live Site
-                <span className="inline-block transition-transform group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
-
-              <a
-                href="/works/no8-hair-salon"
-                className="group ml-8 inline-flex items-center gap-2 border-b border-foreground/20 pb-1 text-sm font-light uppercase tracking-widest text-foreground/70 transition hover:text-foreground"
-              >
-                View Case Study
-                <span className="inline-block transition-transform group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
-            </motion.div>
-          </div>
-
-          {/* Image Column (Right) - フルページ画像 */}
-          <div className="order-1 lg:order-2 lg:col-span-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{
-                duration: 1,
-                ease: [0.25, 0.1, 0.25, 1],
-                delay: 0.3,
-              }}
-              className="overflow-hidden rounded-[2px] border border-foreground/10 bg-background shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15),0_10px_25px_-15px_rgba(0,0,0,0.08)]"
-            >
-              {/* Scrollable Image Area */}
-              <div
-                onScroll={handleScroll}
-                data-lenis-prevent
-                className="refined-scroll-gold h-[500px] overflow-y-auto md:h-[700px]"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/works/featured-no8-full.jpg"
-                  alt="No.8 hair salon - フルページ"
-                  className="w-full"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Progress Bar - ゴールドアクセント */}
-              <div className="relative h-[2px] w-full bg-foreground/5">
-                <div
-                  className="absolute left-0 top-0 h-full bg-[#C9A96E] transition-[width] duration-150 ease-out"
-                  style={{ width: `${scrollProgress}%` }}
-                />
-              </div>
-
-              {/* Caption with dynamic text + percentage */}
-              <div className="flex items-center justify-between border-t border-foreground/10 px-4 py-2.5">
-                <p className="text-xs font-light uppercase tracking-widest text-foreground/40 transition-colors duration-300">
-                  {isAtEnd
-                    ? "— End of the page —"
-                    : "↓ Scroll to see the full page"}
-                </p>
-                <span className="text-xs font-light tabular-nums tracking-widest text-foreground/30">
-                  {Math.round(scrollProgress)}%
-                </span>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        <div className="mt-20 grid gap-12 md:mt-28 lg:grid-cols-12 lg:gap-8">
-          {/* Project Info (Left) */}
-          <div className="order-2 flex flex-col justify-end lg:order-1 lg:col-span-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{
-                duration: 0.8,
-                ease: [0.25, 0.1, 0.25, 1],
-                delay: 0.5,
-              }}
-            >
-              <h3 className="mb-8 font-serif text-3xl tracking-tight md:text-4xl lg:text-5xl">
-                <TextReveal delay={0.7}>MÉLIA NOIR</TextReveal>
-              </h3>
-
-              <dl className="mb-8 space-y-4 text-sm">
-                <div className="flex gap-4">
-                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
-                    Client
-                  </dt>
-                  <dd className="font-light">ファッションブランド</dd>
-                </div>
-                <div className="flex gap-4">
-                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
-                    Year
-                  </dt>
-                  <dd className="font-light">2026</dd>
-                </div>
-                <div className="flex gap-4">
-                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
-                    Role
-                  </dt>
-                  <dd className="font-light">
-                    Concept / Web Design / Copy / Visual Direction
-                  </dd>
-                </div>
-                <div className="flex gap-4">
-                  <dt className="w-16 font-light uppercase tracking-widest text-foreground/50">
-                    Stack
-                  </dt>
-                  <dd className="font-light">
-                    Next.js / TypeScript / Tailwind CSS
-                  </dd>
-                </div>
-              </dl>
-
-              <div className="mb-8 space-y-4 font-light leading-relaxed text-foreground/70">
-                <p>
-                  MÉLIA
-                  NOIRは、甘さと強さ、静けさと華やかさを重ねた架空のファッションブランドLPです。
-                </p>
-                <p>
-                  黒・ベージュ・ゴールドを基調に、余白、写真、タイポグラフィを丁寧に設計し、ファッション誌のような世界観を目指しました。
-                </p>
-                <p className="text-foreground/80">
-                  商品をただ見せるのではなく、ブランドの空気感や憧れまで伝わるよう、CollectionページやDress
-                  / Blouse / Jewelryの詳細ページまで展開しています。
-                </p>
-              </div>
-
-              {/* Live Site Link - ゴールドアクセント */}
-              <a
-                href="https://melia-noir.lentodesign.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 border-b border-[#C9A96E]/40 pb-1 text-sm font-light uppercase tracking-widest text-foreground/90 transition-colors hover:border-[#C9A96E]"
-              >
-                Visit Live Site
-                <span className="inline-block transition-transform group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
-
-              <a
-                href="/works/melia-noir"
-                className="group ml-8 inline-flex items-center gap-2 border-b border-foreground/20 pb-1 text-sm font-light uppercase tracking-widest text-foreground/70 transition hover:text-foreground"
-              >
-                View Case Study
-                <span className="inline-block transition-transform group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
-            </motion.div>
-          </div>
-
-          {/* Image Column (Right) - フルページ画像 */}
-          <div className="order-1 lg:order-2 lg:col-span-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{
-                duration: 1,
-                ease: [0.25, 0.1, 0.25, 1],
-                delay: 0.3,
-              }}
-              className="overflow-hidden rounded-[2px] border border-foreground/10 bg-background shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15),0_10px_25px_-15px_rgba(0,0,0,0.08)]"
-            >
-              {/* Scrollable Image Area */}
-              <div
-                onScroll={handleScroll}
-                data-lenis-prevent
-                className="refined-scroll-gold h-[500px] overflow-y-auto md:h-[700px]"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/works/melia-noir-full.webp"
-                  alt="MÉLIA NOIR - フルページ"
-                  className="w-full"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Progress Bar - ゴールドアクセント */}
-              <div className="relative h-[2px] w-full bg-foreground/5">
-                <div
-                  className="absolute left-0 top-0 h-full bg-[#C9A96E] transition-[width] duration-150 ease-out"
-                  style={{ width: `${scrollProgress}%` }}
-                />
-              </div>
-
-              {/* Caption with dynamic text + percentage */}
-              <div className="flex items-center justify-between border-t border-foreground/10 px-4 py-2.5">
-                <p className="text-xs font-light uppercase tracking-widest text-foreground/40 transition-colors duration-300">
-                  {isAtEnd
-                    ? "— End of the page —"
-                    : "↓ Scroll to see the full page"}
-                </p>
-                <span className="text-xs font-light tabular-nums tracking-widest text-foreground/30">
-                  {Math.round(scrollProgress)}%
-                </span>
-              </div>
-            </motion.div>
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

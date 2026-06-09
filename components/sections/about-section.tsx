@@ -1,32 +1,35 @@
-'use client'
+"use client";
 
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import Image from 'next/image'
-import { LineReveal, TextReveal } from '@/components/text-reveal'
-import { Marquee } from '@/components/marquee'
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import Image from "next/image";
+import { LineReveal, TextReveal } from "@/components/text-reveal";
+import { Marquee } from "@/components/marquee";
 
 const timeline = [
   {
-    year: 'Apparel',
-    title: 'アパレル業界',
-    description: 'ファッションやブランドの世界で、美意識や印象づくりに触れてきました。',
+    year: "Apparel",
+    title: "アパレル業界",
+    description:
+      "ファッションやブランドの世界で、色・余白・印象づくりに触れてきました。見た目の美しさだけでなく、心に残る空気感を大切にしています。",
   },
   {
-    year: 'Care',
-    title: '介護福祉',
-    description: '介護福祉の現場で、言葉にならない想いや小さな変化をくみ取る力を培ってきました。',
+    year: "Care",
+    title: "介護福祉",
+    description:
+      "介護の現場で、言葉にならない想いや小さな変化をくみ取る力を育ててきました。相手の立場に寄り添う視点を、デザインにも活かしています。",
   },
   {
-    year: 'Design',
-    title: 'Webデザイン',
-    description: 'これまでの経験で育ててきた対話力と美意識を活かし、想いが伝わるWebデザインを制作しています。',
+    year: "Design",
+    title: "Webデザイン",
+    description:
+      "これまでの経験で培った美意識と対話力をもとに、魅力が伝わり、行動につながるWebサイトへ整えます。",
   },
-]
+];
 
 export function AboutSection() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(containerRef, { once: true, margin: '-100px' })
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   return (
     <>
@@ -61,7 +64,11 @@ export function AboutSection() {
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1],
+                delay: 0.3,
+              }}
               className="relative lg:col-span-4"
             >
               <div className="grain relative mx-auto aspect-[4/5] w-full max-w-[260px] overflow-hidden grayscale md:max-w-[320px]">
@@ -79,29 +86,33 @@ export function AboutSection() {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.4 }}
+              transition={{
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1],
+                delay: 0.4,
+              }}
               className="flex flex-col justify-center lg:col-span-8"
             >
               <h3 className="mb-8 font-serif text-2xl leading-relaxed tracking-tight md:text-3xl">
-                想いを丁寧にくみ取り、美しく伝わるかたちへ。
+                想いをくみ取り、美しく伝わるかたちへ。
               </h3>
-
               <p className="mb-8 font-light leading-relaxed text-foreground/70">
-                想いや魅力を丁寧にすくい上げ、見る人の心に届くデザインへ整えるWebデザインを制作しています。
-      　　　　　</p>
-
-              <p className="mb-12 font-light leading-relaxed text-foreground/70">
-                ただ綺麗に見せるだけではなく、その人らしさやブランドの空気感が自然に伝わること。言葉、余白、色、写真、構成のひとつひとつを丁寧に選びながら、長く愛される印象をつくっていきます。
+                ブランドやサービスに込められた想い、空気感、届けたい魅力を丁寧に整理し、
+                見る人の心に自然と届くWebデザインを制作しています。
               </p>
-　　　　　　　　
               <p className="mb-12 font-light leading-relaxed text-foreground/70">
-                まだ言葉になっていない想いも、対話を重ねる中で少しずつ輪郭が見えてくるものだと思っています。大切にしていること、届けたい人、残したい印象を一緒に見つめながら、美しく伝わるかたちへ整えます。
-     　　　　　 </p>
-              
+                ただ綺麗に見せるだけではなく、
+                誰に届けるのか、どの順番で伝えるのか、どこで行動してもらうのかまで考え、
+                言葉、余白、色、写真、構成のひとつひとつを大切に選んでいます。
+              </p>
+              <p className="mb-12 font-light leading-relaxed text-foreground/70">
+                アパレルで培った美意識と、介護の現場で育てた相手の小さな変化に気づく力を活かし、
+                その人らしさやブランドの空気感が自然に伝わるデザインへ整えます。{" "}
+              </p>
               {/* Quote */}
               <blockquote className="relative border-l-2 border-accent py-4 pl-8">
                 <p className="font-serif text-xl italic leading-relaxed tracking-tight md:text-2xl">
-                  {'"想いに寄り添い、美しく伝わるデザインを。"'}
+                  {"“想いをくみ取り、心が動く導線へ。”"}
                 </p>
               </blockquote>
             </motion.div>
@@ -114,7 +125,9 @@ export function AboutSection() {
                 <motion.div
                   key={item.year}
                   initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  animate={
+                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+                  }
                   transition={{
                     duration: 0.8,
                     ease: [0.25, 0.1, 0.25, 1],
@@ -138,5 +151,5 @@ export function AboutSection() {
         </div>
       </section>
     </>
-  )
+  );
 }
