@@ -1,5 +1,46 @@
 import Link from "next/link";
 
+const caseMeta = [
+  "Role：Concept / Web Design",
+  "Tools：WordPress / Lab23",
+  "Type：Private Hair Salon Website",
+  "Scope：Visual Direction / UI Design",
+];
+
+const projectDetails = [
+  {
+    title: "Target",
+    text: "大型サロンが苦手で、落ち着いた空間で丁寧に施術を受けたい30〜40代女性。技術力だけでなく、空間・接客・自分に合う提案を重視する方を想定しました。",
+  },
+  {
+    title: "Goal",
+    text: "価格比較ではなく、「ここで過ごしたい」と感じてもらい、完全予約制・1席のみの特別感から予約へ進みやすくすることを目指しました。",
+  },
+  {
+    title: "Mood",
+    text: "NYモード、隠れ家感、静けさ、黒、ゴールド、余白、洗練。甘さを抑えた大人の雰囲気を軸に、静かな上質感を表現しました。",
+  },
+];
+
+const designPoints = [
+  {
+    title: "特別感を伝える余白設計",
+    text: "完全予約制・1席のみのプライベート感が伝わるよう、情報を詰め込まず、ひとつひとつの要素が静かに見える余白を設計しました。",
+  },
+  {
+    title: "黒とゴールドによる上質感",
+    text: "ブラックを基調に、ゴールドを最小限のアクセントとして使用。派手さではなく、大人が通いたくなる都会的な印象を目指しました。",
+  },
+  {
+    title: "セリフ体でつくるモード感",
+    text: "繊細なセリフ体と細い文字組みにより、NYモードのような静かな緊張感と洗練された世界観を表現しています。",
+  },
+  {
+    title: "予約まで迷わない導線",
+    text: "メニュー、ギャラリー、アクセス、予約導線をシンプルに整理し、初めて訪れる方が必要な情報を迷わず確認できる構成にしました。",
+  },
+];
+
 export default function No8HairSalonPage() {
   return (
     <main className="min-h-screen bg-[#fbfaf6] text-[#17130f]">
@@ -17,7 +58,7 @@ export default function No8HairSalonPage() {
                 hair salon
               </h1>
 
-              <p className="mt-8 max-w-xl text-sm font-light leading-[2.1] tracking-[0.08em] text-[#4f4942] md:text-base">
+              <p className="mt-8 max-w-xl text-sm font-light leading-[2.1] tracking-[0.06em] text-[#4f4944] md:text-base">
                 完全予約制の静けさと、
                 <br className="hidden md:block" />
                 NYモードの美意識を映すヘアサロンサイト。
@@ -25,16 +66,16 @@ export default function No8HairSalonPage() {
             </div>
 
             <div className="border-l border-[#ded7ca] pl-6 text-xs font-light leading-[2] tracking-[0.08em] text-[#6d655b]">
-              <p>Role：Concept / Web Design</p>
-              <p>Tools：WordPress / Lab23</p>
-              <p>Type：Private Hair Salon Website</p>
+              {caseMeta.map((item) => (
+                <p key={item}>{item}</p>
+              ))}
             </div>
           </div>
 
           <div className="mt-16 overflow-hidden border border-[#e7e1d7] bg-white shadow-[0_20px_60px_rgba(40,30,20,0.08)]">
-            <div className="aspect-[16/10] w-full overflow-hidden md:aspect-[16/8]">
+            <div className="aspect-[16/10] w-full overflow-hidden bg-[#f3eee7] md:aspect-[16/8]">
               <img
-                src="/works/featured-no8-full.jpg"
+                src="/works/featured-no8-full.webp"
                 alt="No.8 hair salon website mockup"
                 className="h-full w-full object-cover object-top"
               />
@@ -51,7 +92,7 @@ export default function No8HairSalonPage() {
             </p>
           </div>
 
-          <div className="space-y-8 text-sm font-light leading-[2.2] tracking-[0.08em] text-[#4f4942] md:text-base">
+          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
             <p>
               No.8 hair
               salonは、完全予約制・1席のみのプライベート美容室を想定して制作したWebサイトです。
@@ -60,10 +101,34 @@ export default function No8HairSalonPage() {
             </p>
 
             <p>
-              KUKKA
-              LIVINGとは対照的に、甘さを抑えたブラックとゴールドを基調にし、
-              都会的で洗練された印象を設計しています。
+              一般的な美容室サイトの明るく親しみやすい印象とは少し距離を置き、
+              ブラックとゴールド、細い文字組み、落ち着いた写真の見せ方で、
+              大人が通いたくなる隠れ家サロンの空気感を表現しています。
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20 md:px-10 lg:px-16">
+        <div className="mx-auto max-w-6xl">
+          <p className="mb-10 text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+            Target / Goal / Mood
+          </p>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {projectDetails.map((item) => (
+              <div
+                key={item.title}
+                className="border border-[#e4ddd2] bg-white/65 p-7 md:p-8"
+              >
+                <p className="mb-5 font-serif text-2xl font-light tracking-tight text-[#17130f]">
+                  {item.title}
+                </p>
+                <p className="text-sm font-light leading-[2] tracking-[0.06em] text-[#4f4944]">
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -76,16 +141,16 @@ export default function No8HairSalonPage() {
             </p>
           </div>
 
-          <div className="space-y-8 text-sm font-light leading-[2.2] tracking-[0.08em] text-[#4f4942] md:text-base">
+          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
             <p>
-              美容室のWebサイトでは、明るく親しみやすい印象に寄せることが多くあります。
-              しかしNo.8では、あえて静けさや緊張感を残すことで、
-              “大人が通いたくなる隠れ家サロン”としての空気感を表現しました。
+              美容室選びでは、技術力だけでなく「自分に合う空間か」「落ち着いて過ごせるか」も大切な判断材料になります。
+              No.8では、完全予約制・マンツーマンという特徴が自然に伝わるよう、
+              情報量を絞り、静かな余白の中で世界観を感じられる構成にしました。
             </p>
 
             <p>
-              完全予約制という特徴が伝わるように、情報量を詰め込みすぎず、
-              ひとつひとつの要素が丁寧に見えるレイアウトを意識しています。
+              初めて訪れる方が予約前に不安を感じにくいよう、メニュー・ギャラリー・アクセス・予約導線をシンプルに整理。
+              世界観の美しさと、行動しやすさの両立を意識しています。
             </p>
           </div>
         </div>
@@ -106,15 +171,16 @@ export default function No8HairSalonPage() {
               鋭さを宿す。
             </h2>
 
-            <div className="mt-10 space-y-8 text-sm font-light leading-[2.2] tracking-[0.08em] text-[#4f4942] md:text-base">
+            <div className="mt-10 space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
               <p>
                 コンセプトは、NYモードのような削ぎ落とされた美しさ。
-                ブラックを基調にしながら、ゴールドのアクセントで上質感を加えました。
+                ブラックを基調にしながら、ゴールドをアクセントとして効かせ、
+                サロンの静けさと上質感が伝わるトーンに整えました。
               </p>
 
               <p>
-                写真を大きく見せるのではなく、余白の中に配置することで、
-                サロンの静けさや特別感が伝わるようにしています。
+                写真を大きく主張させるのではなく、余白の中に置くことで、
+                「慌ただしい日常から少し離れて、自分のための時間を過ごす」印象をつくっています。
               </p>
             </div>
           </div>
@@ -128,24 +194,44 @@ export default function No8HairSalonPage() {
           </p>
 
           <div className="grid gap-4 md:grid-cols-2">
-            {[
-              "完全予約制・1席のみの特別感が伝わるよう、余白を贅沢に設計",
-              "ブラックとゴールドで、都会的で上質な印象を演出",
-              "セリフ体のタイポグラフィで、モード感と静かな緊張感を表現",
-              "情報を絞ることで、サロンの世界観に集中できる構成に調整",
-            ].map((item, index) => (
+            {designPoints.map((item, index) => (
               <div
-                key={item}
-                className="border border-[#e4ddd2] bg-white/60 p-6 md:p-8"
+                key={item.title}
+                className="border border-[#e4ddd2] bg-white/65 p-7 md:p-9"
               >
                 <p className="mb-6 font-serif text-3xl font-light text-[#d5c9ba]">
-                  0{index + 1}
+                  {String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="text-sm font-light leading-[2] tracking-[0.08em] text-[#4f4942]">
-                  {item}
+                <h3 className="mb-4 text-base font-light leading-[1.8] tracking-[0.08em] text-[#17130f]">
+                  {item.title}
+                </h3>
+                <p className="text-sm font-light leading-[2] tracking-[0.06em] text-[#4f4944]">
+                  {item.text}
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20 md:px-10 lg:px-16">
+        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.35fr_0.65fr]">
+          <div>
+            <p className="text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+              Expected Effect
+            </p>
+          </div>
+
+          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
+            <p>
+              価格やメニューだけで比較されるのではなく、「この空間で過ごしたい」「この人に任せたい」と感じてもらうことで、
+              予約への心理的ハードルを下げることを目指しました。
+            </p>
+
+            <p>
+              サロンの空気感、完全予約制の安心感、マンツーマンの特別感を一貫して伝えることで、
+              指名予約やリピートにつながる印象設計を意識しています。
+            </p>
           </div>
         </div>
       </section>

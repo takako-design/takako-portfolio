@@ -1,5 +1,48 @@
 import Link from "next/link";
 
+const caseMeta = [
+  "Role：Planning / Design / Coding / Writing",
+  "Tools：Figma / VS Code / React / CSS",
+  "Type：Care Facility Website",
+  "Target：親の施設選びを検討する40〜60代のご家族",
+  "Mood：北欧インテリア / 花柄 / 色のある暮らし",
+  "Goal：見学予約前の不安をやわらげる導線設計",
+];
+
+const challengeItems = [
+  {
+    title: "Target",
+    text: "親の施設選びを検討している40〜60代のご家族。安全性だけでなく、本人が心地よく暮らせるか、施設の雰囲気に安心できるかを重視する方を想定しました。北欧インテリアや花柄、色のある暮らしを好む方にも親しみやすく感じてもらえる世界観を意識しています。",
+  },
+  {
+    title: "Goal",
+    text: "見学予約や問い合わせの前に感じる不安をやわらげ、施設での暮らしを前向きにイメージできるサイトにすることを目指しました。",
+  },
+  {
+    title: "Challenge",
+    text: "介護施設らしい信頼感を保ちながら、堅くなりすぎず、暮らしのあたたかさや人の気配が伝わる表現に整えることを課題としました。",
+  },
+];
+
+const designPoints = [
+  {
+    title: "情報を段階的に届ける設計",
+    text: "初めて訪れるご家族が安心して読み進められるよう、施設の雰囲気、暮らしの様子、サポート内容、アクセス、見学予約へと自然に進める構成にしました。",
+  },
+  {
+    title: "北欧らしい明るさと安心感の両立",
+    text: "介護施設としての信頼感を保ちながら、花や色を感じるビジュアルで、暮らしに前向きな印象を加えました。施設を“管理される場所”ではなく、“その人らしく過ごせる住まい”として伝えることを意識しています。",
+  },
+  {
+    title: "不安をやわらげるコピー",
+    text: "専門的・事務的になりやすい情報も、ご家族の気持ちに寄り添う言葉で整理し、問い合わせ前の心理的なハードルを下げることを意識しました。",
+  },
+  {
+    title: "スマートフォンでの読みやすさ",
+    text: "施設探しはスマートフォンで比較・確認されることも多いため、文字サイズ、余白、ボタンの押しやすさを整え、必要な情報へ迷わず進める導線を意識しました。",
+  },
+];
+
 export default function KukkaLivingPage() {
   return (
     <main className="min-h-screen bg-[#fbfaf6] text-[#17130f]">
@@ -17,17 +60,17 @@ export default function KukkaLivingPage() {
                 LIVING
               </h1>
 
-              <p className="mt-8 max-w-xl text-sm font-light leading-[2.1] tracking-[0.08em] text-[#4f4942] md:text-base">
+              <p className="mt-8 max-w-xl text-sm font-light leading-[2.1] tracking-[0.06em] text-[#4f4944] md:text-base">
                 介護施設のあたたかさと安心感を、
                 <br className="hidden md:block" />
-                やさしく伝えるWebサイト。
+                花や色のある暮らしの明るさとともに伝えるWebサイト。
               </p>
             </div>
 
             <div className="border-l border-[#ded7ca] pl-6 text-xs font-light leading-[2] tracking-[0.08em] text-[#6d655b]">
-              <p>Role：Planning / Design / Coding / Writing</p>
-              <p>Tools：Figma / VS Code / React / CSS</p>
-              <p>Type：Care Facility Website</p>
+              {caseMeta.map((item) => (
+                <p key={item}>{item}</p>
+              ))}
             </div>
           </div>
 
@@ -51,20 +94,45 @@ export default function KukkaLivingPage() {
             </p>
           </div>
 
-          <div className="space-y-8 text-sm font-light leading-[2.2] tracking-[0.08em] text-[#4f4942] md:text-base">
+          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
             <p>
-              KUKKA LIVINGは、介護施設を想定して制作したWebサイトです。
-              施設の雰囲気やサービス内容をわかりやすく伝えながら、
-              利用者さまやご家族が安心して問い合わせできるよう、
-              やわらかな色合いと読みやすい情報設計を意識しました。
+              KUKKA
+              LIVINGは、介護施設を想定して制作した自主制作のWebサイトです。
+              施設選びに不安を抱えるご家族が、設備やサービス内容だけでなく、
+              そこで過ごす日々の空気やあたたかさまで想像できるよう、
+              情報設計・コピー・ビジュアルの見せ方を整えました。
             </p>
 
             <p>
-              介護施設のWebサイトでは、情報量が多くなりやすく、
+              介護施設のWebサイトは、情報量が多くなりやすく、
               堅い印象や事務的な印象になってしまうことがあります。
-              そのため、必要な情報を整理しながら、
-              やさしさや信頼感が自然に伝わる構成を目指しました。
+              そのため、必要な情報をわかりやすく整理しながら、
+              「ここなら安心できそう」と感じてもらえる構成を意識しました。
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20 md:px-10 lg:px-16">
+        <div className="mx-auto max-w-6xl">
+          <p className="mb-10 text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+            Target / Goal / Challenge
+          </p>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {challengeItems.map((item) => (
+              <div
+                key={item.title}
+                className="border border-[#e4ddd2] bg-white/65 p-7 md:p-8"
+              >
+                <p className="mb-5 font-serif text-2xl font-light tracking-tight text-[#17130f]">
+                  {item.title}
+                </p>
+                <p className="text-sm font-light leading-[2] tracking-[0.06em] text-[#4f4944]">
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -77,7 +145,7 @@ export default function KukkaLivingPage() {
             </p>
           </div>
 
-          <div className="space-y-8 text-sm font-light leading-[2.2] tracking-[0.08em] text-[#4f4942] md:text-base">
+          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
             <p>
               介護の現場で働く中で感じてきたのは、
               施設選びには「情報のわかりやすさ」だけでなく、
@@ -85,8 +153,15 @@ export default function KukkaLivingPage() {
             </p>
 
             <p>
-              KUKKA LIVINGでは、安心感・清潔感・親しみやすさを軸に、
-              初めてサイトを訪れる方にも穏やかに伝わるデザインを目指しました。
+              ご家族にとって施設選びは、不安や迷いを伴うものです。
+              だからこそ、KUKKA LIVINGでは、サービス内容をただ並べるのではなく、
+              暮らしのイメージが自然に伝わるように構成しました。
+            </p>
+
+            <p>
+              また、北欧インテリアやテキスタイルのように、
+              日常の中に色や柄を取り入れて楽しむ感覚をヒントに、
+              介護施設であっても明るく前向きな暮らしを想像できる表現を目指しました。
             </p>
           </div>
         </div>
@@ -104,18 +179,19 @@ export default function KukkaLivingPage() {
             <h2 className="font-serif text-3xl font-light leading-[1.4] tracking-tight text-[#17130f] md:text-5xl">
               安心が、
               <br />
-              静かに伝わる場所。
+              彩りのある日常に変わる場所。
             </h2>
 
-            <div className="mt-10 space-y-8 text-sm font-light leading-[2.2] tracking-[0.08em] text-[#4f4942] md:text-base">
+            <div className="mt-10 space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
               <p>
-                余白を広く取り、淡いグリーンやベージュを基調にすることで、
+                余白を広く取り、淡いベージュを基調にすることで、
                 清潔感とやわらかさを両立しました。
               </p>
 
               <p>
-                写真や文字の見せ方も、強く主張しすぎず、
-                施設の穏やかな空気が伝わるように整えています。
+                そこに花や色を感じるビジュアルを加えることで、
+                介護施設に対する不安をやわらげながら、
+                「ここでの暮らしが少し楽しみになる」ような前向きな印象を目指しています。
               </p>
             </div>
           </div>
@@ -129,24 +205,49 @@ export default function KukkaLivingPage() {
           </p>
 
           <div className="grid gap-4 md:grid-cols-2">
-            {[
-              "ご家族が安心して読み進められるよう、情報を段階的に配置",
-              "介護施設らしい信頼感と、暮らしに近いあたたかさを両立",
-              "余白と配色で、やさしく落ち着いた印象を演出",
-              "スマートフォンでも読みやすい文字サイズと導線を意識",
-            ].map((item, index) => (
+            {designPoints.map((item, index) => (
               <div
-                key={item}
-                className="border border-[#e4ddd2] bg-white/60 p-6 md:p-8"
+                key={item.title}
+                className="border border-[#e4ddd2] bg-white/65 p-7 md:p-9"
               >
                 <p className="mb-6 font-serif text-3xl font-light text-[#d5c9ba]">
-                  0{index + 1}
+                  {String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="text-sm font-light leading-[2] tracking-[0.08em] text-[#4f4942]">
-                  {item}
+                <h3 className="mb-4 text-base font-light leading-[1.8] tracking-[0.08em] text-[#17130f]">
+                  {item.title}
+                </h3>
+                <p className="text-sm font-light leading-[2] tracking-[0.06em] text-[#4f4944]">
+                  {item.text}
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20 md:px-10 lg:px-16">
+        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[0.35fr_0.65fr]">
+          <div>
+            <p className="text-xs font-light uppercase tracking-[0.35em] text-[#9c8f7e]">
+              Expected Effect
+            </p>
+          </div>
+
+          <div className="space-y-8 text-sm font-light leading-[2.15] tracking-[0.06em] text-[#4f4944] md:text-base">
+            <p>
+              施設の雰囲気や価値観が伝わりやすくなることで、
+              見学予約前の不安軽減につながるサイトを目指しました。
+            </p>
+
+            <p>
+              価格や設備だけで比較されるのではなく、
+              「本人らしく、安心して暮らせる場所」として印象に残るように設計しています。
+            </p>
+
+            <p>
+              北欧デザインのような明るさや、花のある暮らしが好きな方にも、
+              介護施設を前向きな選択肢として受け止めてもらえる表現を意識しました。
+            </p>
           </div>
         </div>
       </section>
