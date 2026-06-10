@@ -91,7 +91,7 @@ export function Header() {
             className="fixed inset-0 z-40 flex items-center justify-center bg-background md:hidden"
           >
             <nav>
-              <ul className="flex flex-col items-center gap-8">
+              <ul className="flex flex-col items-center gap-9">
                 {navItems.map((item, index) => (
                   <motion.li
                     key={item.href}
@@ -103,7 +103,7 @@ export function Header() {
                     <a
                       href={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="font-serif text-4xl tracking-tight"
+                      className="text-[17px] font-light uppercase leading-none tracking-[0.16em] text-[#3f3a34]"
                     >
                       {item.label}
                     </a>
