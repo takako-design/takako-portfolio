@@ -185,7 +185,7 @@ export function FeaturedWorkSection() {
               {/* Live Site Link */}
               <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
                 <a
-                  href="https://kukka.lentodesign.com/"
+                  href="http://kukka.lentodesign.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 border-b border-foreground/20 pb-1.5 text-[13px] font-light uppercase tracking-[0.2em] text-foreground/74 transition-colors hover:border-foreground hover:text-foreground"
