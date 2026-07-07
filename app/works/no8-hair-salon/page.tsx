@@ -246,7 +246,7 @@ export default function No8HairSalonPage() {
           </Link>
 
           <a
-            href="https://no8-hair.lentodesign.com/"
+            href="http://no8-hair.lentodesign.com/"
             target="_blank"
             rel="noreferrer"
             className="inline-flex w-fit border border-[#17130f] px-6 py-3 text-xs font-light uppercase tracking-[0.25em] transition hover:bg-[#17130f] hover:text-white"
