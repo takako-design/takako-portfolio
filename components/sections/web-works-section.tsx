@@ -47,7 +47,7 @@ const projects: Project[] = [
       "大型サロンではなく、一人のスタイリストに丁寧に任せたい女性へ向けたプライベート美容室サイトです。落ち着いた空間で過ごす“自分だけの時間”が伝わるよう設計しました。",
       "黒とゴールド、セリフ体のタイポグラフィ、余白を活かしてモードな印象に。メニュー・アクセス・予約導線を整理し、初めての方でも迷わず来店予約へ進める構成にしています。",
     ],
-    liveHref: "https://no8-hair.lentodesign.com/",
+    liveHref: "http://no8-hair.lentodesign.com/",
     caseHref: "/works/no8-hair-salon",
     imageSrc: "/works/featured-no8-full.webp",
     imageAlt: "No.8 hair salon - フルページ",
